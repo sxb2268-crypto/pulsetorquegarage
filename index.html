@@ -8981,6 +8981,13 @@ img:"images/evijax.jpeg"
 },
 ]
 
+// FIX IMAGE PATHS FOR GITHUB PAGES
+cars.forEach(car => {
+    if (car.img.startsWith("images/")) {
+        car.img = car.img.replace("images/", "");
+    }
+});
+
 let guessGameCars = [];
 
 let currentGuessRound = 0;
