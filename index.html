@@ -1,0 +1,11794 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PulseTorque Garage</title>
+
+<link rel="icon" href="data:,">
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+background:#080808;
+color:white;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+
+.hero{
+
+text-align:center;
+padding:40px 20px;
+
+}
+
+
+.hero h1{
+
+font-size:50px;
+margin:0;
+
+background:linear-gradient(45deg,#ff004c,#ff9900);
+
+background-clip:text;
+-webkit-background-clip:text;
+
+color:transparent;
+
+}
+
+
+.hero p{
+
+color:#aaa;
+font-size:18px;
+
+}
+
+
+/* SEARCH */
+
+.search-wrap{
+
+display:flex;
+justify-content:center;
+gap:12px;
+margin-top:25px;
+flex-wrap:wrap;
+
+}
+
+
+.search{
+
+width:280px;
+padding:14px 20px;
+border-radius:25px;
+border:none;
+outline:none;
+font-size:16px;
+
+}
+
+
+.vs-btn{
+
+padding:14px 25px;
+
+border:none;
+
+border-radius:25px;
+
+cursor:pointer;
+
+background:linear-gradient(45deg,#ff004c,#ff7a00);
+
+color:white;
+
+font-weight:bold;
+
+}
+
+
+/* GRID */
+
+.grid{
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:20px;
+
+padding:30px;
+
+}
+
+.filter-bar{
+
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+
+margin:20px;
+
+}
+
+
+.filter-bar button{
+
+padding:12px 22px;
+
+border-radius:25px;
+
+border:1px solid #333;
+
+background:#111;
+
+color:white;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+.filter-bar button:hover{
+
+background:#ff004c;
+
+box-shadow:0 0 20px #ff004c;
+
+transform:translateY(-3px);
+
+}
+
+.ai-box{
+
+margin:30px auto;
+
+padding:30px;
+
+max-width:700px;
+
+background:
+linear-gradient(145deg,#151515,#050505);
+
+border-radius:25px;
+
+border:1px solid #333;
+
+text-align:center;
+
+box-shadow:
+0 0 30px rgba(255,0,76,.25);
+
+}
+
+
+.ai-box h2{
+
+color:#ff004c;
+
+font-size:22px;
+
+}
+
+
+.ai-box select{
+
+padding:12px;
+
+margin:8px;
+
+border-radius:20px;
+
+background:#111;
+
+color:white;
+
+border:1px solid #555;
+
+}
+
+
+.ai-box button{
+
+padding:15px 30px;
+
+margin-top:15px;
+
+border:none;
+
+border-radius:30px;
+
+background:#00ff99;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+
+#aiResult{
+
+margin-top:25px;
+
+font-size:14px;
+
+line-height:1.8;
+
+}
+
+.ai-search-box{
+
+margin:25px auto;
+
+max-width:600px;
+
+padding:18px 22px;
+
+background:#0b0b0b;
+
+border-radius:18px;
+
+border:1px solid rgba(0,255,153,.2);
+
+box-shadow:0 0 20px rgba(0,255,153,.08);
+
+}
+
+
+
+.ai-header{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+margin-bottom:15px;
+
+}
+
+
+
+.ai-icon{
+
+font-size:28px;
+
+width:45px;
+
+height:45px;
+
+background:#111;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+
+
+.ai-header h2{
+
+font-size:22px;
+
+margin:0;
+
+color:#00ff99;
+
+}
+
+
+
+.ai-header p{
+
+font-size:12px;
+
+margin:3px 0;
+
+color:#888;
+
+}
+
+
+
+.ai-input-area{
+
+display:flex;
+
+gap:8px;
+
+}
+
+
+
+.ai-input-area input{
+
+flex:1;
+
+padding:12px 15px;
+
+border-radius:20px;
+
+background:#050505;
+
+border:1px solid #333;
+
+color:white;
+
+font-size:14px;
+
+}
+
+
+
+.ai-input-area button{
+
+padding:12px 20px;
+
+border-radius:20px;
+
+border:none;
+
+background:#00ff99;
+
+font-weight:bold;
+
+font-size:13px;
+
+cursor:pointer;
+
+}
+
+
+
+#aiMessage{
+
+font-size:13px;
+
+margin-top:12px;
+
+color:#aaa;
+
+}
+
+
+.ai-header{
+
+display:flex;
+
+align-items:center;
+
+gap:20px;
+
+margin-bottom:25px;
+
+}
+
+
+.ai-icon{
+
+font-size:45px;
+
+background:#111;
+
+width:75px;
+
+height:75px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:50%;
+
+box-shadow:
+0 0 25px rgba(0,255,153,.3);
+
+}
+
+
+.ai-header h2{
+
+margin:0;
+
+font-size:32px;
+
+color:#00ff99;
+
+}
+
+
+.ai-header p{
+
+margin:5px 0;
+
+color:#aaa;
+
+font-size:15px;
+
+}
+
+
+
+.ai-input-area{
+
+display:flex;
+
+gap:12px;
+
+}
+
+
+.ai-input-area input{
+
+flex:1;
+
+padding:16px 20px;
+
+border-radius:30px;
+
+border:1px solid #333;
+
+background:#050505;
+
+color:white;
+
+font-size:16px;
+
+}
+
+
+
+.ai-input-area button{
+
+padding:16px 30px;
+
+border:none;
+
+border-radius:30px;
+
+background:#00ff99;
+
+color:black;
+
+font-weight:800;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+.ai-input-area button:hover{
+
+transform:scale(1.05);
+
+box-shadow:0 0 20px #00ff99;
+
+}
+
+
+#aiMessage{
+
+margin-top:20px;
+
+color:#ddd;
+
+font-size:16px;
+
+line-height:1.6;
+
+}
+/* CAR CARD */
+
+
+.car{
+
+width:260px;
+
+background:
+linear-gradient(145deg,#151515,#050505);
+
+border-radius:18px;
+
+overflow:hidden;
+
+border:1px solid #333;
+
+transition:.35s ease;
+
+cursor:pointer;
+
+position:relative;
+
+box-shadow:
+0 0 15px rgba(255,0,76,.15);
+
+}
+
+
+.car:hover{
+
+transform:
+scale(1.07)
+translateY(-8px);
+
+border-color:#ff004c;
+
+box-shadow:
+0 0 25px rgba(255,0,76,.7);
+
+}
+
+
+
+.car img{
+
+width:100%;
+
+height:160px;
+
+object-fit:cover;
+
+}
+
+
+
+.info{
+
+padding:15px;
+
+}
+
+
+
+.name{
+
+font-size:20px;
+
+font-weight:bold;
+
+}
+
+
+
+.stats{
+
+padding:0 15px 15px;
+
+color:#ccc;
+
+font-size:14px;
+
+line-height:1.7;
+
+}
+
+
+
+.car.selected{
+
+border:2px solid #00ff99;
+
+box-shadow:
+
+0 0 25px #00ff99,
+inset 0 0 15px rgba(0,255,153,.4);
+
+transform:scale(1.05);
+
+}
+
+
+
+.selected-count{
+
+text-align:center;
+
+font-size:20px;
+
+color:#00ff99;
+
+margin-top:20px;
+
+}
+
+
+
+.race-overlay{
+
+display:none;
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+min-height:100vh;
+height:auto;
+overflow-y:auto;
+
+background:rgba(0,0,0,.65);
+
+backdrop-filter:blur(15px);
+
+z-index:9999;
+
+animation:overlayFade .35s ease;
+
+}
+
+
+@keyframes overlayFade{
+
+from{
+opacity:0;
+}
+
+to{
+opacity:1;
+}
+
+}
+
+.vs-panel{
+
+display:none;
+
+position:fixed;
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-50%);
+
+width:85%;
+
+max-width:800px;
+
+max-height:75vh;
+
+overflow-y:auto;
+
+padding:25px;
+
+background:
+linear-gradient(145deg,#151515,#050505);
+
+border-radius:25px;
+
+border:1px solid #333;
+
+z-index:10000;
+
+box-shadow:
+0 0 50px rgba(255,0,76,.5);
+
+}
+
+.vs-container{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:15px;
+
+flex-wrap:wrap;
+
+margin:20px;
+
+}
+
+
+
+
+
+
+.closeVS{
+
+position:absolute;
+
+top:15px;
+
+right:15px;
+
+background:#ff004c;
+
+color:white;
+
+border:none;
+
+padding:10px 18px;
+
+border-radius:20px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+.closeVS:hover{
+
+transform:scale(1.08);
+
+box-shadow:0 0 20px #ff004c;
+
+}
+
+.vs-card{
+
+width:180px;
+
+background:#151515;
+
+border-radius:20px;
+
+padding:20px;
+
+text-align:center;
+
+border:1px solid #333;
+
+animation:slideIn .5s ease;
+
+}
+
+
+
+.vs-card img{
+
+width:100%;
+
+height:100px;
+
+object-fit:cover;
+
+border-radius:15px;
+
+}
+
+
+
+.vs-text{
+
+font-size:60px;
+
+font-weight:bold;
+
+color:#ff004c;
+
+animation:pulseVS 1s infinite;
+
+}
+
+
+
+@keyframes slideIn{
+
+from{
+
+transform:translateY(40px);
+
+opacity:0;
+
+}
+
+to{
+
+transform:translateY(0);
+
+opacity:1;
+
+}
+
+}
+
+
+
+@keyframes pulseVS{
+
+50%{
+
+transform:scale(1.2);
+
+}
+
+}
+
+.vs-actions{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+margin-top:20px;
+
+}
+
+
+.cancel-button{
+
+padding:15px 35px;
+
+border:none;
+
+border-radius:30px;
+
+background:#ff004c;
+
+color:white;
+
+font-weight:bold;
+
+font-size:18px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+.cancel-button:hover{
+
+transform:scale(1.08);
+
+box-shadow:0 0 25px #ff004c;
+
+}
+
+
+.race-button{
+
+display:block;
+
+margin:20px auto;
+
+padding:15px 40px;
+
+border:none;
+
+border-radius:30px;
+
+background:#00ff99;
+
+font-weight:bold;
+
+cursor:pointer;
+
+font-size:18px;
+
+}
+
+
+
+/* RACE */
+
+
+.race-overlay{
+
+display:none;
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:rgba(0,0,0,.65);
+
+backdrop-filter:blur(15px);
+
+z-index:9999;
+
+animation:overlayFade .35s ease;
+
+}
+
+
+@keyframes overlayFade{
+
+from{
+opacity:0;
+}
+
+to{
+opacity:1;
+}
+
+}
+
+
+
+.countdown{
+
+text-align:center;
+
+font-size:90px;
+
+padding-top:30px;
+
+font-weight:900;
+
+color:white;
+
+text-shadow:
+0 0 20px #00ff99,
+0 0 60px #00ff99;
+
+transition:.3s;
+
+}
+
+
+
+.lights{
+
+display:flex;
+
+justify-content:center;
+
+gap:12px;
+
+margin:10px;
+
+}
+
+
+
+.lights div{
+
+width:35px;
+
+height:35px;
+
+border-radius:50%;
+
+background:#333;
+
+}
+
+
+
+.light-on{
+
+background:red !important;
+
+box-shadow:0 0 20px red;
+
+}
+
+
+
+.raceTrack{
+
+margin-top:25px;
+
+}
+
+
+
+.raceLane{
+position:relative;
+height:105px;
+margin:8px 0;
+overflow:hidden;
+
+background:
+linear-gradient(to bottom,#3a3a3a,#222,#3a3a3a);
+
+border-top:2px dashed rgba(255,255,255,.15);
+border-bottom:2px dashed rgba(255,255,255,.15);
+
+box-shadow:
+inset 0 0 30px rgba(0,0,0,.8);
+}
+
+.raceLane::after{
+content:"";
+position:absolute;
+left:0;
+top:50%;
+width:100%;
+height:2px;
+
+background:
+repeating-linear-gradient(
+to right,
+white 0 40px,
+transparent 40px 80px
+);
+
+opacity:.25;
+}
+
+
+.raceCar{
+
+position:absolute;
+
+left:0;
+
+top:12px;
+
+width:120px;
+
+transition:left .05s linear;
+
+filter:
+drop-shadow(0 12px 18px rgba(0,0,0,.8));
+
+}
+
+@keyframes idle{
+
+from{
+transform:translateY(0);
+}
+
+to{
+transform:translateY(-3px);
+}
+
+}
+
+
+
+.startLine{
+
+position:absolute;
+
+left:0;
+
+top:0;
+
+height:100%;
+
+width:5px;
+
+background:white;
+
+}
+
+
+
+.finishLine{
+position:absolute;
+right:80px;
+top:0;
+width:14px;
+height:100%;
+
+background:
+repeating-linear-gradient(
+white 0 10px,
+black 10px 20px
+);
+
+box-shadow:
+0 0 25px white;
+}
+
+
+
+.smoke{
+
+position:absolute;
+
+width:120px;
+height:120px;
+
+border-radius:50%;
+
+background:
+radial-gradient(circle,
+rgba(255,255,255,.45),
+transparent 70%);
+
+filter:blur(18px);
+
+pointer-events:none;
+
+}
+
+
+.class-badge{
+
+position:absolute;
+
+top:10px;
+
+left:10px;
+
+padding:5px 10px;
+
+border-radius:8px;
+
+font-weight:bold;
+
+font-size:14px;
+
+background:black;
+
+border:2px solid white;
+
+}
+
+
+.class-X{
+
+color:#ff004c;
+
+border-color:#ff004c;
+
+box-shadow:0 0 15px #ff004c;
+
+}
+
+
+.class-S{
+
+color:#00ff99;
+
+border-color:#00ff99;
+
+box-shadow:0 0 15px #00ff99;
+
+}
+
+
+.class-A{
+
+color:#4cc9ff;
+
+border-color:#4cc9ff;
+
+}
+
+
+.class-B{
+
+color:#ffd166;
+
+border-color:#ffd166;
+
+}
+
+.race-close{
+
+position:absolute;
+
+top:25px;
+
+right:35px;
+
+width:50px;
+
+height:50px;
+
+border-radius:50%;
+
+border:2px solid #ff004c;
+
+background:#111;
+
+color:white;
+
+font-size:28px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+box-shadow:
+0 0 15px rgba(255,0,76,.7);
+
+transition:.3s;
+
+}
+
+
+.race-close:hover{
+
+transform:scale(1.15) rotate(90deg);
+
+background:#ff004c;
+
+box-shadow:
+0 0 30px #ff004c;
+
+}
+
+.brand-btn{
+
+position:absolute;
+right:30px;
+top:30px;
+
+padding:12px 25px;
+
+background:#111;
+color:white;
+
+border:2px solid #ff004c;
+
+border-radius:20px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+
+.brand-menu{
+
+display:none;
+
+position:fixed;
+
+top:80px;
+right:30px;
+
+width:380px;
+max-height:75vh;
+
+overflow-y:auto;
+
+background:#080808;
+
+border:2px solid #ff004c;
+
+border-radius:20px;
+
+padding:25px;
+
+z-index:999;
+
+box-shadow:
+0 0 25px rgba(255,0,76,.7);
+
+}
+
+
+.brand-menu h2{
+
+text-align:center;
+
+color:white;
+
+font-size:22px;
+
+margin-bottom:20px;
+
+}
+
+
+.brand-list{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:12px;
+
+}
+
+
+.brand-list button{
+
+background:#111;
+
+color:white;
+
+border:1px solid #ff004c;
+
+padding:12px;
+
+border-radius:15px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+
+.brand-list button:hover{
+
+background:#ff004c;
+
+transform:scale(1.05);
+
+}
+
+
+.close-brand{
+
+margin-top:20px;
+
+width:100%;
+
+padding:12px;
+
+background:#ff004c;
+
+color:white;
+
+border:none;
+
+border-radius:15px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+
+.close-brand{
+
+margin-top:20px;
+
+width:100%;
+
+padding:12px;
+
+background:#ff004c;
+
+color:white;
+
+border:none;
+
+border-radius:15px;
+
+}
+
+.country-btn{
+
+margin-left:10px;
+
+padding:12px 25px;
+
+background:#111;
+
+color:white;
+
+border:2px solid #ff004c;
+
+border-radius:20px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+#randomBtn{
+background:linear-gradient(135deg,#ff7b00,#ffb700);
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:12px;
+font-size:15px;
+font-weight:700;
+cursor:pointer;
+margin-left:10px;
+transition:0.25s;
+box-shadow:0 4px 12px rgba(255,123,0,.35);
+}
+
+#randomBtn:hover{
+transform:translateY(-2px) scale(1.05);
+box-shadow:0 8px 18px rgba(255,123,0,.5);
+}
+
+button:hover{
+
+transform:translateY(-3px) scale(1.05);
+
+transition:.25s ease;
+
+}
+
+button{
+
+transition:.25s ease;
+
+}
+
+#randomBtn:active{
+transform:scale(.96);
+}
+
+
+
+.vs-panel.show{
+
+animation:vsPop .45s ease forwards;
+
+}
+
+
+@keyframes vsPop{
+
+from{
+
+opacity:0;
+
+transform:translate(-50%,-50%) scale(.7);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translate(-50%,-50%) scale(1);
+
+}
+
+}
+
+.leader-btn{
+
+padding:14px 25px;
+
+border:none;
+
+border-radius:25px;
+
+cursor:pointer;
+
+background:linear-gradient(45deg,#ffd700,#ff9900);
+
+color:black;
+
+font-weight:bold;
+
+}
+
+
+.leaderboard{
+
+display:block;
+
+opacity:0;
+
+visibility:hidden;
+
+position:fixed;
+
+top:50%;
+
+left:50%;
+
+transform:
+translate(-50%,-45%)
+scale(.85);
+
+width:90%;
+
+max-width:700px;
+
+max-height:80vh;
+
+overflow:auto;
+
+background:rgba(10,10,10,.95);
+
+backdrop-filter:blur(20px);
+
+border:2px solid #ffd700;
+
+border-radius:25px;
+
+padding:30px;
+
+z-index:10000;
+
+box-shadow:
+
+0 0 40px rgba(255,215,0,.45),
+
+0 0 90px rgba(0,255,153,.25),
+
+inset 0 0 30px rgba(255,255,255,.05);
+
+}
+
+
+.leaderboard h1{
+
+text-align:center;
+
+font-size:32px;
+
+font-weight:900;
+
+letter-spacing:2px;
+
+background:
+linear-gradient(
+90deg,
+#ffd700,
+#ffffff,
+#00ff99
+);
+
+-webkit-background-clip:text;
+background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+animation:
+titleGlow 2s infinite alternate;
+
+margin-bottom:25px;
+
+}
+
+@keyframes titleGlow{
+
+from{
+
+filter:
+drop-shadow(0 0 5px #ffd700);
+
+}
+
+
+to{
+
+filter:
+drop-shadow(0 0 20px #00ff99);
+
+}
+
+}
+
+
+.rank-card{
+
+display:flex;
+
+align-items:center;
+
+gap:20px;
+
+background:
+linear-gradient(
+135deg,
+rgba(255,255,255,.08),
+rgba(255,255,255,.02)
+);
+
+margin:15px 0;
+
+padding:15px;
+
+border-radius:18px;
+
+border:1px solid rgba(255,255,255,.15);
+
+opacity:0;
+
+transform:
+translateX(-40px);
+
+animation:
+rankSlide .45s ease forwards;
+
+backdrop-filter:blur(10px);
+
+transition:.3s;
+
+}
+
+@keyframes rankSlide{
+
+
+from{
+
+opacity:0;
+
+transform:
+translateX(-40px)
+scale(.95);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:
+translateX(0)
+scale(1);
+
+}
+
+
+}
+
+.rank-card:hover{
+
+transform:
+translateX(8px)
+scale(1.03);
+
+border-color:#00ff99;
+
+box-shadow:
+0 0 25px rgba(0,255,153,.4);
+
+}
+
+.rank-card:nth-child(1){
+animation-delay:.05s;
+}
+
+.rank-card:nth-child(2){
+animation-delay:.10s;
+}
+
+.rank-card:nth-child(3){
+animation-delay:.15s;
+}
+
+.rank-card:nth-child(4){
+animation-delay:.20s;
+}
+
+.rank-card:nth-child(5){
+animation-delay:.25s;
+}
+
+.rank-card:nth-child(6){
+animation-delay:.30s;
+}
+
+.rank-card:nth-child(7){
+animation-delay:.35s;
+}
+
+.rank-card:nth-child(8){
+animation-delay:.40s;
+}
+
+.rank-card:nth-child(9){
+animation-delay:.45s;
+}
+
+.rank-card:nth-child(10){
+animation-delay:.50s;
+}
+
+
+.rank-card img{
+
+width:140px;
+
+height:80px;
+
+object-fit:cover;
+
+border-radius:15px;
+
+transition:.4s;
+
+border:1px solid rgba(255,255,255,.2);
+
+box-shadow:
+
+0 5px 20px rgba(0,0,0,.5);
+
+}
+
+.rank-card:hover img{
+
+transform:
+
+scale(1.12);
+
+box-shadow:
+
+0 0 30px rgba(0,255,153,.6);
+
+}
+
+
+.rank-number{
+
+font-size:38px;
+
+font-weight:900;
+
+min-width:50px;
+
+text-align:center;
+
+color:#ffd700;
+
+text-shadow:
+
+0 0 15px rgba(255,215,0,.8);
+
+}
+
+.rank-card:nth-child(1) .rank-number{
+
+color:#ffd700;
+
+font-size:45px;
+
+text-shadow:
+
+0 0 25px #ffd700;
+
+}
+
+
+.rank-card:nth-child(2) .rank-number{
+
+color:#c0c0c0;
+
+text-shadow:
+
+0 0 20px #c0c0c0;
+
+}
+
+
+.rank-card:nth-child(3) .rank-number{
+
+color:#cd7f32;
+
+text-shadow:
+
+0 0 20px #cd7f32;
+
+}
+
+
+.flag{
+
+font-size:25px;
+
+}
+
+.leaderTabs{
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+margin:20px 0 25px;
+
+position:relative;
+
+}
+
+.leaderBtn{
+
+position:relative;
+
+z-index:2;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+135deg,
+rgba(255,255,255,.15),
+rgba(255,255,255,.05)
+);
+
+border:1px solid rgba(255,255,255,.25);
+
+color:white;
+
+padding:14px 35px;
+
+border-radius:30px;
+
+font-size:18px;
+
+font-weight:800;
+
+cursor:pointer;
+
+transition:.4s;
+
+backdrop-filter:blur(15px);
+
+box-shadow:
+0 8px 25px rgba(0,0,0,.4);
+
+}
+
+.leaderBtn:hover{
+
+transform:
+translateY(-5px)
+scale(1.08);
+
+background:
+linear-gradient(
+135deg,
+#00ff99,
+#00ccff
+);
+
+color:#000;
+
+box-shadow:
+0 0 30px #00ff99,
+0 0 60px rgba(0,255,200,.5);
+
+}
+
+.leaderBtn.active{
+
+background:
+linear-gradient(
+135deg,
+#ffd700,
+#ff9900
+);
+
+color:#000;
+
+box-shadow:
+0 0 25px #ffd700,
+0 0 50px rgba(255,215,0,.5);
+
+transform:
+scale(1.08);
+
+}
+
+.leaderboard.open{
+
+opacity:1;
+
+visibility:visible;
+
+transform:
+translate(-50%,-50%)
+scale(1);
+
+animation:
+leaderOpen .45s ease forwards;
+
+}
+
+
+@keyframes leaderOpen{
+
+0%{
+
+opacity:0;
+
+transform:
+translate(-50%,-40%)
+scale(.75);
+
+filter:blur(10px);
+
+}
+
+
+100%{
+
+opacity:1;
+
+transform:
+translate(-50%,-50%)
+scale(1);
+
+filter:blur(0);
+
+}
+
+}
+
+#leaderContent{
+
+transition:.25s ease;
+
+}
+
+.leaderBtn:active{
+
+transform:scale(.92);
+
+}
+
+.leaderboard::before{
+
+content:"";
+
+position:absolute;
+
+inset:-3px;
+
+border-radius:28px;
+
+background:
+
+linear-gradient(
+45deg,
+#ffd700,
+transparent,
+#00ff99,
+transparent
+);
+
+filter:blur(20px);
+
+opacity:.35;
+
+z-index:-1;
+
+animation:
+leaderGlow 4s linear infinite;
+
+}
+
+
+@keyframes leaderGlow{
+
+0%{
+
+transform:rotate(0deg);
+
+}
+
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+@keyframes flash{
+
+0%{
+filter:brightness(1);
+}
+
+50%{
+filter:brightness(2);
+}
+
+100%{
+filter:brightness(1);
+}
+
+}
+
+.daily-btn{
+
+background:linear-gradient(135deg,#FFD700,#ff9900);
+
+color:black;
+
+border:none;
+
+padding:12px 22px;
+
+border-radius:15px;
+
+font-weight:900;
+
+cursor:pointer;
+
+box-shadow:0 0 25px rgba(255,215,0,.5);
+
+transition:.3s;
+
+}
+
+.daily-btn:hover{
+
+transform:translateY(-3px) scale(1.05);
+
+box-shadow:0 0 40px gold;
+
+}
+
+.poll-btn{
+
+position:relative;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+gap:4px;
+
+width:190px;
+
+height:70px;
+
+padding:10px 18px;
+
+box-sizing:border-box;
+
+margin:0;
+
+border-radius:18px;
+
+border:1px solid rgba(255,215,0,.55);
+
+background:
+linear-gradient(
+135deg,
+#3a2a00,
+#111111
+);
+
+color:#ffd700;
+
+font-size:17px;
+
+font-weight:900;
+
+cursor:pointer;
+
+box-shadow:
+0 0 20px rgba(255,215,0,.25),
+inset 0 0 18px rgba(255,215,0,.05);
+
+transition:.35s ease;
+
+overflow:hidden;
+
+}
+
+
+.poll-btn::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-120%;
+
+width:80%;
+
+height:100%;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.18),
+transparent
+);
+
+transform:skewX(-20deg);
+
+transition:.6s ease;
+
+pointer-events:none;
+
+}
+
+
+.poll-btn:hover::before{
+
+left:140%;
+
+}
+
+
+.poll-btn:hover{
+
+transform:translateY(-5px) scale(1.04);
+
+border-color:#ffd700;
+
+box-shadow:
+0 0 40px rgba(255,215,0,.65),
+inset 0 0 25px rgba(255,215,0,.08);
+
+}
+
+
+.poll-btn span{
+
+font-size:10px;
+
+letter-spacing:2.5px;
+
+color:white;
+
+font-weight:700;
+
+}
+.dailyFeature{
+
+display:none;
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:
+radial-gradient(circle at top,
+var(--dailyColor),
+transparent 35%),
+rgba(5,5,5,.96);
+
+backdrop-filter:blur(8px);
+
+z-index:999999;
+
+overflow:auto;
+
+animation:dailyFade .45s ease;
+
+}
+
+@keyframes dailyOpen{
+
+from{
+
+opacity:0;
+
+transform:scale(.95);
+
+filter:blur(15px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+filter:blur(0);
+
+}
+
+}
+
+@keyframes dailyFade{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+.dailyBack{
+
+position:fixed;
+
+top:30px;
+
+left:30px;
+
+background:#111;
+
+border:1px solid #444;
+
+color:white;
+
+padding:14px 24px;
+
+border-radius:14px;
+
+cursor:pointer;
+
+font-size:16px;
+
+font-weight:bold;
+
+transition:.3s;
+
+z-index:5;
+
+}
+
+.dailyBack:hover{
+
+background:#00ff99;
+
+color:black;
+
+transform:translateX(-5px);
+
+}
+
+#dailyContent{
+
+max-width:1200px;
+
+margin:auto;
+
+padding:100px 40px 60px;
+
+text-align:center;
+
+color:white;
+
+}
+
+.dailyBadge{
+
+display:inline-block;
+
+padding:12px 25px;
+
+border-radius:30px;
+
+background:linear-gradient(135deg,#ffd700,#ff9900);
+
+color:black;
+
+font-weight:900;
+
+letter-spacing:3px;
+
+box-shadow:0 0 30px gold;
+
+}
+
+.rarityBadge{
+
+display:inline-block;
+
+margin-top:15px;
+
+padding:10px 25px;
+
+border-radius:30px;
+
+font-weight:900;
+
+font-size:18px;
+
+background:
+linear-gradient(135deg,#00ff99,#00ccff);
+
+color:black;
+
+box-shadow:
+0 0 25px rgba(0,255,153,.6);
+
+animation:
+badgePulse 2s infinite;
+
+}
+
+
+@keyframes badgePulse{
+
+0%,100%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.08);
+}
+
+}
+
+.dailyMeta{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+margin:25px 0;
+
+}
+
+
+.dailyMeta span{
+
+padding:10px 22px;
+
+border-radius:25px;
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.2);
+
+font-size:16px;
+
+font-weight:700;
+
+color:#ddd;
+
+backdrop-filter:blur(15px);
+
+}
+
+
+.dailyTitle{
+
+font-size:70px;
+
+font-weight:900;
+
+margin:30px 0;
+
+letter-spacing:3px;
+
+background:
+linear-gradient(
+90deg,
+#ffffff,
+#00ff99,
+#ffffff
+);
+
+-webkit-background-clip:text;
+background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+animation:titleShine 4s linear infinite;
+
+}
+
+
+@keyframes titleShine{
+
+0%{
+
+filter:drop-shadow(0 0 5px #00ff99);
+
+}
+
+
+50%{
+
+filter:drop-shadow(0 0 25px #00ff99);
+
+}
+
+
+100%{
+
+filter:drop-shadow(0 0 5px #00ff99);
+
+}
+
+}
+
+
+.dailyImage{
+
+width:70%;
+
+max-width:850px;
+
+border-radius:25px;
+
+box-shadow:
+
+0 40px 100px rgba(0,0,0,.9),
+0 0 60px rgba(0,255,153,.25);
+
+animation:
+
+carFloat 4s ease-in-out infinite;
+
+transition:.4s;
+
+}
+
+
+.dailyImage:hover{
+
+transform:scale(1.03);
+
+}
+
+.dailyImage{
+
+position:relative;
+
+filter:
+drop-shadow(0 0 35px var(--dailyColor));
+
+}
+
+
+.dailyImage:hover{
+
+transform:scale(1.05);
+
+filter:
+drop-shadow(0 0 60px rgba(0,255,153,.9));
+
+}
+
+.dailyStats{
+
+display:flex;
+
+justify-content:center;
+
+gap:50px;
+
+flex-wrap:wrap;
+
+margin:50px 0;
+
+}
+
+
+.dailyStats div{
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.15);
+
+padding:25px 35px;
+
+border-radius:20px;
+
+backdrop-filter:blur(15px);
+
+}
+
+
+.dailyStats h2{
+
+color:#00ff99;
+
+font-size:35px;
+
+margin:0;
+
+}
+
+
+.dailyStats p{
+
+color:#aaa;
+
+letter-spacing:2px;
+
+}
+
+
+.dailyBox{
+
+max-width:850px;
+
+margin:35px auto;
+
+padding:30px;
+
+background:rgba(255,255,255,.06);
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:25px;
+
+backdrop-filter:blur(15px);
+
+text-align:left;
+
+}
+
+
+.dailyBox h2{
+
+color:#00ff99;
+
+}
+
+
+.dailyBox p{
+
+font-size:20px;
+
+line-height:1.7;
+
+color:#ddd;
+
+}
+
+.shareBox{
+
+margin:40px 0;
+
+text-align:center;
+
+}
+
+
+.shareBtn{
+
+background:
+linear-gradient(135deg,#00ff99,#00ccff);
+
+border:none;
+
+padding:16px 35px;
+
+border-radius:30px;
+
+font-size:18px;
+
+font-weight:900;
+
+cursor:pointer;
+
+color:black;
+
+box-shadow:
+
+0 0 30px rgba(0,255,153,.5);
+
+transition:.3s;
+
+}
+
+
+.shareBtn:hover{
+
+transform:
+
+scale(1.08)
+translateY(-5px);
+
+box-shadow:
+
+0 0 50px rgba(0,255,153,.8);
+
+}
+
+.specialBox{
+
+background:
+linear-gradient(
+135deg,
+rgba(0,255,153,.12),
+rgba(0,0,0,.35)
+);
+
+border:
+1px solid rgba(0,255,153,.35);
+
+box-shadow:
+
+0 0 40px rgba(0,255,153,.15);
+
+}
+
+
+.specialBox h2{
+
+font-size:28px;
+
+text-shadow:
+
+0 0 15px rgba(0,255,153,.7);
+
+}
+
+@keyframes winnerPop{
+
+0%{
+
+transform:
+translate(-50%,-50%) scale(.6);
+
+opacity:0;
+
+}
+
+100%{
+
+transform:
+translate(-50%,-50%) scale(1);
+
+opacity:1;
+
+}
+
+}
+
+@keyframes carFloat{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+.guessGame{
+
+display:none;
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:
+radial-gradient(circle at top,#1a1a1a,#050505);
+
+backdrop-filter:blur(25px);
+
+z-index:9999;
+
+overflow:auto;
+
+animation:guessFade .4s ease;
+
+}
+
+@keyframes guessFade{
+
+from{
+
+opacity:0;
+
+transform:scale(.98);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+.guessBack{
+
+position:fixed;
+
+top:25px;
+left:25px;
+
+padding:14px 24px;
+
+background:#111;
+
+color:white;
+
+border:1px solid #444;
+
+border-radius:15px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+transition:.3s;
+
+z-index:20;
+
+}
+
+.guessBack:hover{
+
+background:#00ff99;
+
+color:black;
+
+}
+
+#guessContent{
+
+max-width:1100px;
+
+margin:auto;
+
+padding:90px 30px;
+
+text-align:center;
+
+color:white;
+
+}
+
+.guessTitle{
+
+font-size:60px;
+
+font-weight:900;
+
+margin-bottom:10px;
+
+}
+
+.guessSubtitle{
+
+font-size:20px;
+
+color:#999;
+
+margin-bottom:50px;
+
+}
+
+.guessImage{
+
+width:80%;
+
+max-width:900px;
+
+border-radius:22px;
+
+filter:blur(18px);
+
+transition:.4s;
+
+box-shadow:
+
+0 25px 80px rgba(0,0,0,.8);
+
+}
+
+.guessStats{
+
+display:flex;
+
+justify-content:center;
+
+gap:35px;
+
+margin:50px 0;
+
+flex-wrap:wrap;
+
+}
+
+.guessStats div{
+
+background:rgba(255,255,255,.06);
+
+padding:25px 35px;
+
+border-radius:18px;
+
+border:1px solid rgba(255,255,255,.15);
+
+min-width:160px;
+
+}
+
+.guessStats h2{
+
+color:#00ff99;
+
+margin:0;
+
+font-size:34px;
+
+}
+
+.guessStats p{
+
+color:#aaa;
+
+margin-top:8px;
+
+letter-spacing:2px;
+
+}
+
+.guessOptions{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:20px;
+
+margin-top:40px;
+
+}
+
+.guessOption{
+
+padding:20px;
+
+font-size:20px;
+
+font-weight:800;
+
+background:#111;
+
+border:1px solid #333;
+
+color:white;
+
+border-radius:18px;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+.guessOption:hover{
+
+transform:translateY(-4px);
+
+border-color:#00ff99;
+
+box-shadow:0 0 20px rgba(0,255,153,.35);
+
+}
+
+.guessProgress{
+
+font-size:20px;
+
+margin-bottom:25px;
+
+color:#ffd700;
+
+font-weight:800;
+
+}
+
+.guessMessage{
+
+position:fixed;
+
+top:50%;
+left:50%;
+
+transform:
+translate(-50%,-50%);
+
+padding:25px 45px;
+
+border-radius:20px;
+
+color:black;
+
+font-size:28px;
+
+font-weight:900;
+
+text-align:center;
+
+z-index:9999999;
+
+box-shadow:
+0 0 40px rgba(255,255,255,.4);
+
+animation:
+guessPop .3s ease,
+guessFadeOut 1.2s ease forwards;
+
+}
+
+
+@keyframes guessPop{
+
+0%{
+
+transform:
+translate(-50%,-50%)
+scale(.5);
+
+opacity:0;
+
+}
+
+100%{
+
+transform:
+translate(-50%,-50%)
+scale(1);
+
+opacity:1;
+
+}
+
+}
+
+
+@keyframes guessFadeOut{
+
+0%{
+
+opacity:1;
+
+}
+
+80%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:0;
+
+}
+
+}
+
+
+
+.scoreCard{
+
+width:260px;
+
+margin:40px auto;
+
+padding:35px;
+
+border-radius:30px;
+
+color:black;
+
+box-shadow:
+
+0 0 50px rgba(255,255,255,.35);
+
+animation:
+
+guessPop .5s ease;
+
+}
+
+
+.scoreCard h2{
+
+font-size:55px;
+
+margin:0;
+
+}
+
+
+.scoreCard p{
+
+font-weight:900;
+
+letter-spacing:3px;
+
+}
+
+
+.blurredCar{
+
+filter:
+blur(9px)
+brightness(.55)
+contrast(1.2);
+
+transform:scale(1.05);
+
+opacity:.9;
+
+transition:.8s ease;
+
+}
+
+.guessReveal{
+
+filter:
+blur(0px)
+brightness(1)
+contrast(1);
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+
+.guessImage{
+
+width:80%;
+
+max-width:900px;
+
+border-radius:25px;
+
+box-shadow:
+
+0 0 40px rgba(0,255,153,.25);
+
+transition:.8s ease;
+
+}
+
+
+.guessImage:not(.blurredCar){
+
+filter: brightness(1);
+
+transform: scale(1);
+
+opacity: 1;
+
+}
+
+.scoreCard{
+
+width:350px;
+
+margin:60px auto;
+
+padding:45px;
+
+border-radius:30px;
+
+text-align:center;
+
+color:white;
+
+animation:guessPop .5s ease;
+
+box-shadow:
+
+0 0 60px rgba(255,255,255,.25);
+
+}
+
+
+.scoreCard h2{
+
+font-size:70px;
+
+margin:20px 0;
+
+}
+
+
+.scoreCard h3{
+
+font-size:35px;
+
+letter-spacing:3px;
+
+}
+
+
+.rookie{
+
+background:
+linear-gradient(
+135deg,
+#8b5a2b,
+#cd7f32
+);
+
+box-shadow:
+
+0 0 50px #cd7f32;
+
+}
+
+
+.beginner{
+
+background:
+linear-gradient(
+135deg,
+#555,
+#c0c0c0
+);
+
+box-shadow:
+
+0 0 50px #c0c0c0;
+
+}
+
+
+.intermediate{
+
+background:
+linear-gradient(
+135deg,
+#0044ff,
+#00ccff
+);
+
+box-shadow:
+
+0 0 50px #00ccff;
+
+}
+
+
+.carguy{
+
+background:
+linear-gradient(
+135deg,
+#6a0dad,
+#ff00cc
+);
+
+box-shadow:
+
+0 0 50px #ff00cc;
+
+}
+
+
+.expert{
+
+background:
+linear-gradient(
+135deg,
+#ffd700,
+#ff9900
+);
+
+color:black;
+
+box-shadow:
+
+0 0 70px gold;
+
+}
+
+.progressBar{
+
+width:80%;
+
+max-width:500px;
+
+height:18px;
+
+background:
+rgba(255,255,255,.15);
+
+border-radius:20px;
+
+overflow:hidden;
+
+margin:20px auto;
+
+}
+
+
+.progressFill{
+
+height:100%;
+
+background:
+linear-gradient(
+90deg,
+#00ff99,
+#00ccff
+);
+
+border-radius:20px;
+
+transition:.5s;
+
+}
+
+.guessMessage{
+
+position:fixed;
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-50%) scale(.7);
+
+z-index:9999;
+
+padding:35px 55px;
+
+border-radius:25px;
+
+text-align:center;
+
+color:white;
+
+font-size:22px;
+
+font-weight:bold;
+
+background:rgba(0,0,0,.85);
+
+border:2px solid rgba(255,255,255,.3);
+
+backdrop-filter:blur(15px);
+
+box-shadow:
+
+0 0 40px rgba(0,255,153,.5),
+0 20px 60px rgba(0,0,0,.8);
+
+animation:guessPopup .4s forwards;
+
+}
+
+
+.guessMessage h2{
+
+font-size:40px;
+
+margin:0 0 15px;
+
+}
+
+
+.guessMessage h3{
+
+color:#00ff99;
+
+font-size:28px;
+
+margin:10px;
+
+}
+
+
+.guessMessage p{
+
+font-size:20px;
+
+line-height:1.6;
+
+color:#ddd;
+
+}
+
+
+@keyframes guessPopup{
+
+from{
+
+opacity:0;
+
+transform:
+translate(-50%,-50%) scale(.7);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:
+translate(-50%,-50%) scale(1);
+
+}
+
+}
+
+.guessGameBtn{
+
+display:flex;
+
+align-items:center;
+
+gap:18px;
+
+padding:18px 35px;
+
+border-radius:20px;
+
+border:1px solid rgba(0,255,153,.5);
+
+background:
+
+linear-gradient(
+135deg,
+rgba(0,255,153,.25),
+rgba(0,0,0,.8)
+);
+
+color:white;
+
+cursor:pointer;
+
+backdrop-filter:blur(12px);
+
+box-shadow:
+
+0 0 25px rgba(0,255,153,.25),
+inset 0 0 20px rgba(255,255,255,.05);
+
+transition:.35s ease;
+
+overflow:hidden;
+
+}
+
+
+.guessGameBtn:hover{
+
+transform:translateY(-5px) scale(1.03);
+
+box-shadow:
+
+0 0 45px rgba(0,255,153,.6),
+0 20px 40px rgba(0,0,0,.5);
+
+}
+
+
+.guessGameBtn:active{
+
+transform:scale(.96);
+
+}
+
+
+.guessGameBtn h2{
+
+margin:0;
+
+font-size:22px;
+
+letter-spacing:1px;
+
+}
+
+
+.guessGameBtn p{
+
+margin:4px 0 0;
+
+color:#aaa;
+
+font-size:13px;
+
+}
+
+
+.guessIcon{
+
+font-size:40px;
+
+animation:carPulse 2s infinite;
+
+}
+
+
+@keyframes carPulse{
+
+0%,100%{
+
+transform:scale(1);
+
+}
+
+
+50%{
+
+transform:scale(1.15);
+
+}
+
+}
+
+.premiumGuessResult{
+
+position:fixed;
+
+top:50%;
+
+left:50%;
+
+transform:
+translate(-50%,-50%)
+scale(.85);
+
+opacity:0;
+
+z-index:99999;
+
+width:320px;
+
+padding:25px;
+
+text-align:center;
+
+border-radius:24px;
+
+background:
+linear-gradient(
+145deg,
+rgba(20,20,20,.96),
+rgba(5,5,5,.96)
+);
+
+border:
+1px solid var(--resultColor);
+
+box-shadow:
+
+0 0 25px var(--resultColor),
+0 20px 50px rgba(0,0,0,.75);
+
+backdrop-filter:blur(15px);
+
+color:white;
+
+transition:.35s ease;
+
+overflow:hidden;
+
+}
+
+
+.premiumGuessResult.show{
+
+opacity:1;
+
+transform:
+translate(-50%,-50%)
+scale(1);
+
+}
+
+
+.premiumGuessResult h1{
+
+font-size:30px;
+
+margin:0 0 15px;
+
+color:var(--resultColor);
+
+}
+
+
+.premiumGuessResult h2{
+
+font-size:22px;
+
+margin:15px 0;
+
+}
+
+
+.resultStatsMini{
+
+display:flex;
+
+justify-content:space-around;
+
+margin-top:25px;
+
+}
+
+
+.resultStatsMini div{
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+
+.resultStatsMini strong{
+
+font-size:20px;
+
+}
+
+
+.resultStatsMini span{
+
+color:#aaa;
+
+font-size:13px;
+
+}
+
+
+.resultGlow{
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+circle,
+var(--resultColor),
+transparent 60%
+);
+
+opacity:.15;
+
+pointer-events:none;
+
+}
+
+.dailyPoll{
+    display:none;
+}
+
+.dailyPollTitle{
+
+font-size:42px;
+
+font-weight:800;
+
+margin-bottom:10px;
+
+}
+
+.dailyPollSubtitle{
+
+font-size:18px;
+
+color:#9f9f9f;
+
+margin-bottom:30px;
+
+}
+
+.pollGrid{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:20px;
+
+margin-top:25px;
+
+}
+
+.pollOption{
+
+padding:22px;
+
+border-radius:18px;
+
+background:#171717;
+
+border:1px solid #2c2c2c;
+
+cursor:pointer;
+
+transition:.25s;
+
+font-size:20px;
+
+font-weight:700;
+
+}
+
+.pollOption:hover{
+
+transform:translateY(-4px);
+
+border-color:#00ff99;
+
+box-shadow:
+0 0 25px rgba(0,255,153,.35);
+
+}
+
+.pollCountdown{
+
+margin-top:30px;
+
+font-size:18px;
+
+color:#00ff99;
+
+font-weight:700;
+
+}
+
+.pollVotes{
+
+margin-top:10px;
+
+color:#8f8f8f;
+
+font-size:15px;
+
+}
+
+
+.poll-btn{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    width:190px;
+    min-height:70px;
+
+    margin:0;
+    padding:12px 18px;
+
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #171717,
+            #090909
+        );
+
+    border:1px solid rgba(255,215,0,.45);
+
+    color:white;
+
+    font-size:17px;
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.3s ease;
+
+    box-shadow:
+        0 0 18px rgba(255,215,0,.12),
+        inset 0 0 20px rgba(255,215,0,.03);
+
+    overflow:hidden;
+}
+
+.poll-btn::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 30%,
+            rgba(255,255,255,.12),
+            transparent 70%
+        );
+
+    transform:translateX(-120%);
+    transition:.6s ease;
+}
+
+.poll-btn:hover::before{
+    transform:translateX(120%);
+}
+
+.poll-btn:hover{
+    transform:translateY(-4px);
+
+    border-color:#ffd700;
+
+    box-shadow:
+        0 0 30px rgba(255,215,0,.3),
+        inset 0 0 25px rgba(255,215,0,.06);
+}
+
+.poll-btn span{
+    display:block;
+
+    margin-top:4px;
+
+    font-size:11px;
+    letter-spacing:2px;
+
+    color:#ffd700;
+}
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="hero">
+
+<h1>PulseTorque Garage</h1>
+
+<p>The Ultimate Car Database</p>
+
+
+<div class="search-wrap">
+
+<input id="search" class="search" placeholder="Search cars..." onkeyup="searchCars()">
+
+<button id="randomBtn" onclick="randomCar()">🎲 Random Car</button>
+
+<button class="country-btn" onclick="openCountries()">
+COUNTRIES
+</button>
+
+<button class="brand-btn" onclick="openBrands()">
+BRANDS
+</button>
+
+
+
+
+<button class="vs-btn" onclick="startVS()">
+
+START VS RACE
+
+</button>
+
+<button class="leader-btn" onclick="openLeaderboard()">
+🏆 LEADERBOARDS
+</button>
+
+<button class="daily-btn" onclick="openDailyFeature()">
+⭐ DAILY FEATURE
+</button>
+
+
+
+<button class="guessGameBtn" onclick="openGuessGame()">
+
+<div class="guessIcon">
+🏎️
+</div>
+
+<div>
+<h2>GUESS THE CAR</h2>
+<p>50 ROUND CHALLENGE</p>
+</div>
+
+</button>
+
+</div>
+
+
+
+<div class="selected-count" id="selectedCount">
+
+Selected Cars: 0 / 4
+
+</div>
+
+<div class="filter-bar">
+
+<button onclick="filterCars('All')">ALL</button>
+<button onclick="filterCars('Hypercar')">HYPERCARS</button>
+<button onclick="filterCars('Supercar')">SUPERCARS</button>
+<button onclick="filterCars('Coupe')">COUPES</button>
+<button onclick="filterCars('Sedan')">SEDANS</button>
+<button onclick="filterCars('SUV')">SUVS</button>
+<button onclick="filterCars('Hatchback')">HATCHBACKS</button>
+<button onclick="filterCars('Truck')">TRUCKS</button>
+<button onclick="filterCars('Race Cars / Track Cars')">Race Cars / Track Cars</button>
+
+
+</div>
+
+<div class="grid">
+
+</div>
+
+
+<div id="vsPanel" class="vs-panel">
+
+</div>
+
+
+<div id="raceOverlay" class="race-overlay">
+
+<button class="race-close" onclick="closeRace()">×</button>
+<div id="countdown" class="countdown">
+
+3
+
+</div>
+
+
+<div class="lights">
+
+<div id="light1"></div>
+
+<div id="light2"></div>
+
+<div id="light3"></div>
+
+</div>
+
+
+<div id="raceTrack" class="raceTrack">
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<div id="dailyFeature" class="dailyFeature">
+
+<button class="dailyBack" onclick="closeDailyFeature()">
+← Return to Garage
+</button>
+
+<div id="dailyContent"></div>
+
+</div>
+
+<div id="dailyPoll" class="dailyPoll">
+
+<button class="dailyBack" onclick="closeDailyPoll()">
+← Return to Garage
+</button>
+
+<div id="dailyPollContent"></div>
+
+</div>
+
+
+
+<div id="guessGame" class="guessGame">
+
+<button class="guessBack" onclick="closeGuessGame()">
+← RETURN TO GARAGE
+</button>
+
+<div id="guessContent"></div>
+
+</div>
+
+
+<script>
+
+const cars = [
+
+{
+name:"Lamborghini Revuelto",
+year:"2023",
+hp:1015,
+tq:807,
+zero:"2.3",
+quarter:"9.3",
+category:"Supercar",
+img:"images/revuelto.jpeg"
+},
+
+{
+name:"Koenigsegg Jesko",
+year:"2021",
+hp:1600,
+tq:1100,
+zero:"2.4",
+quarter:"8.8",
+category:"Hypercar",
+img:"images/jesko.jpeg"
+},
+
+{
+name:"Lamborghini Aventador SVJ",
+year:"2019",
+hp:770,
+tq:720,
+zero:"2.8",
+quarter:"10.3",
+category:"Supercar",
+img:"images/svj.jpeg"
+},
+
+{
+name:"Ferrari SF90 Stradale",
+year:"2020",
+hp:1000,
+tq:800,
+zero:"2.0",
+quarter:"9.5",
+category:"Supercar",
+img:"images/sf90.jpeg"
+},
+
+{
+name:"McLaren 765LT",
+year:"2020",
+hp:755,
+tq:800,
+zero:"2.7",
+quarter:"9.5",
+category:"Supercar",
+img:"images/765lt.jpeg"
+},
+
+{
+name:"Bugatti Tourbillon",
+year:"2026",
+hp:1800,
+tq:1700,
+zero:"1.9",
+quarter:"8.8",
+category:"Hypercar",
+img:"images/tourbillon.jpeg"
+},
+
+{
+name:"Ferrari Luce",
+year:"2025",
+hp:1000,
+tq:1200,
+zero:"2.2",
+quarter:"9.3",
+category:"Supercar",
+img:"images/luce.jpeg"
+},
+
+{
+name:"Porsche 911 GT3 RS",
+year:"2023",
+hp:518,
+tq:465,
+zero:"3.0",
+quarter:"10.6",
+category:"Supercar",
+img:"images/gt3rs.jpeg"
+},
+
+{
+name:"BMW M5 CS",
+year:"2022",
+hp:627,
+tq:553,
+zero:"2.6",
+quarter:"10.5",
+category:"Sedan",
+img:"images/m5cs.jpeg"
+},
+
+{
+name:"BMW M8 Competition",
+year:"2020",
+hp:617,
+tq:553,
+zero:"2.5",
+quarter:"10.6",
+category:"Coupe",
+img:"images/m8.jpeg"
+},
+
+{
+name:"Mercedes AMG GT63 S E PERFORMANCE",
+year:"2023",
+hp:831,
+tq:1082,
+zero:"2.6",
+quarter:"10.6",
+category:"Sedan",
+img:"images/gt63s.jpeg"
+},
+
+{
+name:"Audi RS7 Performance",
+year:"2024",
+hp:621,
+tq:627,
+zero:"3.3",
+quarter:"11.2",
+category:"Sedan",
+img:"images/rs7.jpeg"
+},
+
+{
+name:"Rimac Nevera",
+year:"2022",
+hp:1914,
+tq:1740,
+zero:"1.8",
+quarter:"8.2",
+category:"Hypercar",
+img:"images/nevera.jpeg"
+},
+
+{
+name:"Rimac Nevera R",
+year:"2024",
+hp:2107,
+tq:1740,
+zero:"1.7",
+quarter:"7.9",
+category:"Hypercar",
+img:"images/neverar.jpeg"
+},
+
+{
+name:"Tesla Model S Plaid",
+year:"2021",
+hp:1020,
+tq:1420,
+zero:"1.99",
+quarter:"9.2",
+category:"Sedan",
+img:"images/plaid.jpeg"
+},
+
+{
+name:"Hyundai Elantra N",
+year:"2022",
+hp:276,
+tq:392,
+zero:"4.8",
+quarter:"13.2",
+category:"Sedan",
+img:"images/elantran.jpeg"
+},
+
+{
+name:"Honda Civic Type R",
+year:"2023",
+hp:315,
+tq:310,
+zero:"5.0",
+quarter:"13.5",
+category:"Hatchback",
+img:"images/typer.jpeg"
+},
+
+{
+name:"Volkswagen Golf R",
+year:"2022",
+hp:315,
+tq:295,
+zero:"4.4",
+quarter:"12.9",
+category:"Hatchback",
+img:"images/golfr.jpeg"
+},
+
+{
+name:"Toyota GR Corolla",
+year:"2023",
+hp:300,
+tq:295,
+zero:"4.9",
+quarter:"13.1",
+category:"Hatchback",
+img:"images/grcorolla.jpeg"
+},
+
+{
+name:"Chevrolet Corvette ZR1X",
+year:"2025",
+hp:1064,
+tq:1120,
+zero:"2.0",
+quarter:"8.89",
+category:"Supercar",
+img:"images/zr1x.jpeg"
+},
+
+{
+name:"Rolls-Royce Phantom",
+year:"2025",
+hp:563,
+tq:900,
+zero:"5.1",
+quarter:"13.2",
+category:"Sedan",
+img:"images/phantom.jpeg"
+},
+
+{
+name:"Bentley Continental GT",
+year:"2025",
+hp:771,
+tq:1000,
+zero:"3.1",
+quarter:"11.0",
+category:"Coupe",
+img:"images/continentalgt.jpeg"
+},
+
+{
+name:"Cadillac CT5-V Blackwing",
+year:"2025",
+hp:668,
+tq:893,
+zero:"3.5",
+quarter:"11.4",
+category:"Sedan",
+img:"images/ct5v.jpeg"
+},
+
+{
+name:"Lamborghini Urus SE",
+year:"2025",
+hp:789,
+tq:800,
+zero:"3.4",
+quarter:"11.0",
+category:"SUV",
+img:"images/urusse.jpeg"
+},
+
+{
+name:"Koenigsegg Agera RS",
+year:"2017",
+hp:1160,
+tq:1280,
+zero:"2.8",
+quarter:"9.9",
+category:"Hypercar",
+img:"images/agerars.jpeg"
+},
+
+{
+name:"BMW M2",
+year:"2026",
+hp:473,
+tq:406,
+zero:"3.4",
+quarter:"11.8",
+category:"Coupe",
+img:"images/m2.jpeg"
+},
+
+{
+name:"BMW M3 F80",
+year:"2018",
+hp:503,
+tq:406,
+zero:"3.6",
+quarter:"11.6",
+category:"Sedan",
+img:"images/f80.jpeg"
+},
+
+{
+name:"BMW M4 G82 Competition",
+year:"2025",
+hp:523,
+tq:650,
+zero:"2.9",
+quarter:"10.9",
+category:"Coupe",
+img:"images/g82.jpeg"
+},
+
+{
+name:"BMW M6 Competition",
+year:"2019",
+hp:617,
+tq:553,
+zero:"3.1",
+quarter:"11.0",
+category:"Coupe",
+img:"images/m6.jpeg"
+},
+
+{
+name:"BMW M760i",
+year:"2022",
+hp:601,
+tq:627,
+zero:"3.6",
+quarter:"11.49",
+category:"Sedan",
+img:"images/m760i.jpeg"
+},
+
+{
+name:"BMW XM Label Red",
+year:"2024",
+hp:738,
+tq:1000,
+zero:"3.8",
+quarter:"11.8",
+category:"SUV",
+img:"images/xmlabelred.jpeg"
+},
+
+{
+name:"Audi RS3",
+year:"2025",
+hp:401,
+tq:500,
+zero:"3.8",
+quarter:"12.0",
+category:"Sedan",
+img:"images/rs3.jpeg"
+},
+
+{
+name:"Audi RS5",
+year:"2025",
+hp:444,
+tq:600,
+zero:"3.5",
+quarter:"11.8",
+category:"Coupe",
+img:"images/rs5.jpeg"
+},
+
+{
+name:"Audi RS6 Avant Performance",
+year:"2024",
+hp:621,
+tq:850,
+zero:"3.3",
+quarter:"11.0",
+category:"Sedan",
+img:"images/rs6.jpeg"
+},
+
+
+{
+name:"Hennessey Venom F5",
+year:"2024",
+hp:1817,
+tq:1617,
+zero:"2.6",
+quarter:"8.9",
+category:"Hypercar",
+img:"images/venomf5.jpeg"
+},
+
+{
+name:"Hennessey Venom GT",
+year:"2017",
+hp:1244,
+tq:1566,
+zero:"2.7",
+quarter:"9.4",
+category:"Hypercar",
+img:"images/venomgt.jpeg"
+},
+
+{
+name:"Bugatti Chiron Super Sport",
+year:"2022",
+hp:1578,
+tq:1600,
+zero:"2.3",
+quarter:"9.1",
+category:"Hypercar",
+img:"images/chironss.jpeg"
+},
+
+{
+name:"Bugatti Veyron Super Sport",
+year:"2011",
+hp:1200,
+tq:1500,
+zero:"2.5",
+quarter:"9.7",
+category:"Hypercar",
+img:"images/veyronss.jpeg"
+},
+
+{
+name:"Bugatti Centodieci",
+year:"2022",
+hp:1578,
+tq:1600,
+zero:"2.4",
+quarter:"9.2",
+category:"Hypercar",
+img:"images/centodieci.jpeg"
+},
+
+{
+name:"Bugatti Divo",
+year:"2020",
+hp:1479,
+tq:1600,
+zero:"2.4",
+quarter:"9.3",
+category:"Hypercar",
+img:"images/divo.jpeg"
+},
+
+{
+name:"Bugatti Brouillard",
+year:"2025",
+hp:1600,
+tq:1600,
+zero:"2.3",
+quarter:"9.0",
+category:"Hypercar",
+img:"images/brouilard.jpeg"
+},
+
+{
+name:"Bugatti Mistral",
+year:"2024",
+hp:1578,
+tq:1180,
+zero:"2.4",
+quarter:"9.4",
+topSpeed:282,
+category:"Hypercar",
+img:"images/mistral.jpeg"
+},
+
+{
+name:"Koenigsegg Regera",
+year:"2021",
+hp:1500,
+tq:2000,
+zero:"2.8",
+quarter:"9.1",
+category:"Hypercar",
+img:"images/regera.jpeg"
+},
+
+{
+name:"Koenigsegg Jesko Absolut",
+year:"2025",
+hp:1600,
+tq:1500,
+zero:"2.4",
+quarter:"8.5",
+category:"Hypercar",
+img:"images/absolut.jpeg"
+},
+
+{
+name:"Koenigsegg Gemera",
+year:"2025",
+hp:2300,
+tq:2750,
+zero:"1.9",
+quarter:"8.8",
+category:"Hypercar",
+img:"images/gemera.jpeg"
+},
+
+{
+name:"Koenigsegg CC850",
+year:"2023",
+hp:1385,
+tq:1385,
+zero:"2.5",
+quarter:"9.2",
+category:"Hypercar",
+img:"images/cc850.jpeg"
+},
+
+{
+name:"Dodge Charger Hellcat",
+year:"2023",
+hp:717,
+tq:881,
+zero:"3.6",
+quarter:"11.6",
+category:"Sedan",
+img:"images/charger.jpeg"
+},
+
+{
+name:"Dodge Challenger Hellcat",
+year:"2023",
+hp:717,
+tq:881,
+zero:"3.6",
+quarter:"11.4",
+category:"Coupe",
+img:"images/challenger.jpeg"
+},
+
+{
+name:"Dodge Challenger Demon 170",
+year:"2023",
+hp:1025,
+tq:1281,
+zero:"2.3",
+quarter:"9.2",
+category:"Coupe",
+img:"images/demon.jpeg"
+},
+
+{
+name:"Tom Wrigley G80 BMW M3",
+year:"2026",
+hp:1550,
+tq:1500,
+zero:"1.57",
+quarter:"7.67",
+category:"Sedan",
+img:"images/tomg80.jpeg"
+},
+
+{
+name:"Ferrari F80",
+year:"2025",
+hp:1184,
+tq:850,
+zero:"2.2",
+quarter:"8.9",
+category:"Hypercar",
+img:"images/ferrarif80.jpeg"
+},
+
+{
+name:"Ferrari LaFerrari",
+year:"2015",
+hp:950,
+tq:900,
+zero:"2.6",
+quarter:"9.9",
+category:"Hypercar",
+img:"images/laferrari.jpeg"
+},
+
+{
+name:"Ferrari F8 Tributo",
+year:"2020",
+hp:710,
+tq:770,
+zero:"2.9",
+quarter:"10.3",
+category:"Supercar",
+img:"images/f8.jpeg"
+},
+
+{
+name:"Ferrari 488 Pista",
+year:"2019",
+hp:710,
+tq:770,
+zero:"2.8",
+quarter:"10.0",
+category:"Supercar",
+img:"images/488pista.jpeg"
+},
+
+{
+name:"Ferrari 458 Italia",
+year:"2015",
+hp:562,
+tq:540,
+zero:"3.3",
+quarter:"11.0",
+category:"Supercar",
+img:"images/450italia.jpeg"
+},
+
+{
+name:"Ferrari 812 Competizione",
+year:"2022",
+hp:819,
+tq:692,
+zero:"2.8",
+quarter:"10.2",
+category:"Supercar",
+img:"images/812competizione.jpeg"
+},
+
+{
+name:"Ferrari Purosangue",
+year:"2024",
+hp:715,
+tq:716,
+zero:"3.3",
+quarter:"11.2",
+category:"SUV",
+img:"images/purosangue.jpeg"
+},
+
+{
+name:"Ferrari F40",
+year:"1992",
+hp:471,
+tq:577,
+zero:"4.1",
+quarter:"11.8",
+category:"Supercar",
+img:"images/f40.jpeg"
+},
+
+{
+name:"Tata Harrier EV",
+year:"2025",
+hp:390,
+tq:504,
+zero:"6.3",
+quarter:"14.6",
+category:"SUV",
+img:"images/harrierev.jpeg"
+},
+
+
+{
+name:"Tata Sierra EV",
+year:"2025",
+hp:390,
+tq:504,
+zero:"6.5",
+quarter:"14.8",
+category:"SUV",
+img:"images/sierraev.jpeg"
+},
+
+
+{
+name:"Tata Safari",
+year:"2026",
+hp:168,
+tq:350,
+zero:"9.5",
+quarter:"16.8",
+category:"SUV",
+img:"images/safari.jpeg"
+},
+
+
+{
+name:"Tata Tiago",
+year:"2025",
+hp:86,
+tq:113,
+zero:"13.0",
+quarter:"19.0",
+category:"Hatchback",
+img:"images/tiago.jpeg"
+},
+
+
+{
+name:"Tata Altroz Racer",
+year:"2025",
+hp:118,
+tq:170,
+zero:"10.0",
+quarter:"17.2",
+category:"Hatchback",
+img:"images/altroz.jpeg"
+},
+
+
+{
+name:"Ford Mustang Shelby GT500",
+year:"2022",
+hp:760,
+tq:847,
+zero:"3.3",
+quarter:"10.7",
+category:"Coupe",
+img:"images/gt500.jpeg"
+},
+
+
+{
+name:"Ford GT",
+year:"2022",
+hp:660,
+tq:746,
+zero:"2.8",
+quarter:"10.8",
+category:"Supercar",
+img:"images/fordgt.jpeg"
+},
+
+
+{
+name:"Ford Mustang GTD",
+year:"2025",
+hp:815,
+tq:900,
+zero:"2.8",
+quarter:"10.6",
+category:"Coupe",
+img:"images/mustanggtd.jpeg"
+},
+
+
+{
+name:"Ford Mustang Mach-E GT",
+year:"2025",
+hp:480,
+tq:813,
+zero:"3.8",
+quarter:"12.3",
+category:"SUV",
+img:"images/mache.jpeg"
+},
+
+
+{
+name:"Chevrolet Camaro ZL1",
+year:"2024",
+hp:650,
+tq:881,
+zero:"3.4",
+quarter:"11.4",
+category:"Coupe",
+img:"images/zl1maro.jpeg"
+},
+
+
+{
+name:"Chevrolet Camaro SS",
+year:"2024",
+hp:455,
+tq:617,
+zero:"4.0",
+quarter:"12.4",
+category:"Coupe",
+img:"images/camaross.jpeg"
+},
+
+
+{
+name:"Chevrolet Corvette C6 ZR1",
+year:"2013",
+hp:638,
+tq:819,
+zero:"3.3",
+quarter:"11.2",
+category:"Coupe",
+img:"images/c6zr1.jpeg"
+},
+
+
+{
+name:"Chevrolet Corvette C7 ZR1",
+year:"2019",
+hp:755,
+tq:969,
+zero:"2.8",
+quarter:"10.5",
+category:"Supercar",
+img:"images/c7zr1.jpeg"
+},
+
+
+{
+name:"Chevrolet Corvette C6 Z06",
+year:"2013",
+hp:505,
+tq:637,
+zero:"3.7",
+quarter:"11.5",
+category:"Coupe",
+img:"images/c6z06.jpeg"
+},
+
+
+{
+name:"Chevrolet Corvette C6",
+year:"2013",
+hp:430,
+tq:575,
+zero:"4.1",
+quarter:"12.5",
+category:"Coupe",
+img:"images/c6base.jpeg"
+},
+
+
+{
+name:"Chevrolet Corvette C7 Stingray",
+year:"2019",
+hp:460,
+tq:630,
+zero:"3.7",
+quarter:"11.8",
+category:"Coupe",
+img:"images/c7base.jpeg"
+},
+
+
+{
+name:"Chevrolet Corvette C8 Stingray",
+year:"2025",
+hp:495,
+tq:637,
+zero:"2.9",
+quarter:"11.2",
+category:"Coupe",
+img:"images/c8base.jpeg"
+},
+
+
+{
+name:"Lamborghini Fenomeno",
+year:"2026",
+hp:1001,
+tq:900,
+zero:"2.0",
+quarter:"8.9",
+category:"Hypercar",
+img:"images/fenomeno.jpeg"
+},
+
+
+{
+name:"Lamborghini Huracán Performante",
+year:"2018",
+hp:640,
+tq:600,
+zero:"2.8",
+quarter:"10.4",
+category:"Supercar",
+img:"images/huracanperfomante.jpeg"
+},
+
+
+{
+name:"UGR Lamborghini Huracán STO",
+year:"2024",
+hp:2200,
+tq:1800,
+zero:"1.6",
+quarter:"7.2",
+category:"Supercar",
+img:"images/ugrsto.jpeg"
+},
+
+
+{
+name:"Lamborghini Murciélago SV",
+year:"2010",
+hp:661,
+tq:660,
+zero:"3.1",
+quarter:"10.8",
+category:"Supercar",
+img:"images/murcielagosv.jpeg"
+},
+
+
+{
+name:"Lamborghini Aventador SV",
+year:"2017",
+hp:740,
+tq:690,
+zero:"2.7",
+quarter:"10.2",
+category:"Supercar",
+img:"images/aventadorsv.jpeg"
+},
+
+
+{
+name:"Lamborghini Gallardo Superleggera",
+year:"2013",
+hp:570,
+tq:540,
+zero:"3.4",
+quarter:"11.3",
+category:"Supercar",
+img:"images/gallardosuperleggera.jpeg"
+},
+
+
+{
+name:"Lamborghini Countach LPI 800-4",
+year:"2022",
+hp:803,
+tq:720,
+zero:"2.8",
+quarter:"10.4",
+category:"Supercar",
+img:"images/countach.jpeg"
+},
+
+
+{
+name:"Lamborghini Reventón",
+year:"2008",
+hp:650,
+tq:660,
+zero:"3.3",
+quarter:"11.1",
+category:"Supercar",
+img:"images/reventon.jpeg"
+},
+
+
+{
+name:"Lamborghini Centenario",
+year:"2017",
+hp:770,
+tq:690,
+zero:"2.7",
+quarter:"10.3",
+category:"Supercar",
+img:"images/centenario.jpeg"
+},
+
+
+{
+name:"Lamborghini Sesto Elemento",
+year:"2012",
+hp:570,
+tq:540,
+zero:"2.5",
+quarter:"10.5",
+category:"Supercar",
+img:"images/sestoelemento.jpeg"
+},
+
+
+{
+name:"Lamborghini Veneno",
+year:"2014",
+hp:750,
+tq:690,
+zero:"2.7",
+quarter:"10.2",
+category:"Supercar",
+img:"images/veneno.jpeg"
+},
+
+
+{
+name:"Red Bull RB7",
+year:"2011",
+hp:750,
+tq:340,
+zero:"1.7",
+quarter:"8.3",
+category:"Race Cars / Track Cars",
+img:"images/rb7.jpeg"
+},
+
+
+{
+name:"BAR Honda 007",
+year:"2005",
+hp:900,
+tq:390,
+zero:"2.3",
+quarter:"9.4",
+category:"Race Cars / Track Cars",
+img:"images/007.jpeg"
+},
+
+
+{
+name:"Williams FW38",
+year:"2016",
+hp:900,
+tq:450,
+zero:"1.9",
+quarter:"8.6",
+category:"Race Cars / Track Cars",
+img:"images/fw38.jpeg"
+},
+
+
+{
+name:"Ferrari F2004",
+year:"2004",
+hp:865,
+tq:390,
+zero:"1.8",
+quarter:"8.4",
+category:"Race Cars / Track Cars",
+img:"images/f2004.jpeg"
+},
+
+
+{
+name:"Mahindra XEV 9e",
+year:"2025",
+hp:282,
+tq:380,
+zero:"6.8",
+quarter:"14.8",
+category:"SUV",
+img:"images/xev9e.jpeg"
+},
+
+
+{
+name:"Mahindra BE 6",
+year:"2025",
+hp:282,
+tq:380,
+zero:"6.7",
+quarter:"14.7",
+category:"SUV",
+img:"images/be6.jpeg"
+},
+
+
+{
+name:"Mahindra XUV500",
+year:"2021",
+hp:155,
+tq:360,
+zero:"10.8",
+quarter:"17.5",
+category:"SUV",
+img:"images/xuv500.jpeg"
+},
+
+
+{
+name:"Mahindra Thar Roxx",
+year:"2025",
+hp:175,
+tq:380,
+zero:"10.6",
+quarter:"17.2",
+category:"SUV",
+img:"images/thar.jpeg"
+},
+
+
+{
+name:"Mahindra XUV 3XO",
+year:"2025",
+hp:130,
+tq:230,
+zero:"10.4",
+quarter:"17.0",
+category:"SUV",
+img:"images/xuv3x0.jpeg"
+},
+
+
+{
+name:"Mahindra XUV700",
+year:"2025",
+hp:197,
+tq:380,
+zero:"8.6",
+quarter:"15.8",
+category:"SUV",
+img:"images/xuv700.jpeg"
+},
+
+
+{
+name:"Mahindra XEV 9e Pack Three",
+year:"2025",
+hp:282,
+tq:380,
+zero:"6.5",
+quarter:"14.5",
+category:"SUV",
+img:"images/xev9s.jpeg"
+},
+
+
+{
+name:"Mercedes-AMG C63 S E Performance",
+year:"2025",
+hp:671,
+tq:1020,
+zero:"3.3",
+quarter:"11.2",
+category:"Sedan",
+img:"images/c63seperformance.jpeg"
+},
+
+
+{
+name:"Mercedes-AMG E63 S",
+year:"2023",
+hp:603,
+tq:850,
+zero:"3.0",
+quarter:"11.1",
+category:"Sedan",
+img:"images/e63s.jpeg"
+},
+
+
+{
+name:"Mercedes-AMG S63 E Performance",
+year:"2025",
+hp:791,
+tq:1430,
+zero:"3.1",
+quarter:"10.9",
+category:"Sedan",
+img:"images/s63s.jpeg"
+},
+
+
+{
+name:"Mercedes-AMG CLS63 S",
+year:"2018",
+hp:577,
+tq:800,
+zero:"3.5",
+quarter:"11.5",
+category:"Sedan",
+img:"images/cls63s.jpeg"
+},
+
+
+{
+name:"Mercedes-AMG G63",
+year:"2025",
+hp:577,
+tq:850,
+zero:"4.1",
+quarter:"12.3",
+category:"SUV",
+img:"images/g63s.jpeg"
+},
+
+
+{
+name:"Porsche 911 Turbo S (992.2 T-Hybrid)",
+year:"2026",
+hp:700,
+tq:800,
+zero:"2.3",
+quarter:"9.8",
+category:"Supercar",
+img:"images/turbos.jpeg"
+},
+
+
+{
+name:"Porsche Taycan Turbo GT",
+year:"2025",
+hp:1092,
+tq:1340,
+zero:"2.1",
+quarter:"9.1",
+category:"Sedan",
+img:"images/turbogt.jpeg"
+},
+
+
+{
+name:"Porsche Cayenne Turbo Electric",
+year:"2026",
+hp:1000,
+tq:1250,
+zero:"2.4",
+quarter:"9.9",
+category:"SUV",
+img:"images/cayenne.jpeg"
+},
+
+
+{
+name:"Porsche 918 Spyder",
+year:"2015",
+hp:887,
+tq:1280,
+zero:"2.2",
+quarter:"9.8",
+category:"Hypercar",
+img:"images/918.jpeg"
+},
+
+
+{
+name:"Porsche Carrera GT",
+year:"2005",
+hp:603,
+tq:590,
+zero:"3.5",
+quarter:"11.2",
+category:"Supercar",
+img:"images/cgt.jpeg"
+},
+
+
+{
+name:"Aston Martin Vanquish",
+year:"2025",
+hp:824,
+tq:1000,
+zero:"3.2",
+quarter:"10.8",
+category:"Supercar",
+img:"images/vanquish.jpeg"
+},
+
+
+{
+name:"Aston Martin Valhalla",
+year:"2025",
+hp:1064,
+tq:1100,
+zero:"2.5",
+quarter:"9.5",
+category:"Hypercar",
+img:"images/valhalla.jpeg"
+},
+
+
+{
+name:"Aston Martin DBX707",
+year:"2025",
+hp:697,
+tq:900,
+zero:"3.1",
+quarter:"11.2",
+category:"SUV",
+img:"images/dbx707.jpeg"
+},
+
+
+{
+name:"Aston Martin Vantage",
+year:"2025",
+hp:656,
+tq:800,
+zero:"3.4",
+quarter:"10.9",
+category:"Supercar",
+img:"images/vantage.jpeg"
+},
+
+
+{
+name:"Aston Martin DB12",
+year:"2025",
+hp:671,
+tq:800,
+zero:"3.5",
+quarter:"11.1",
+category:"Supercar",
+img:"images/db12.jpeg"
+},
+
+
+{
+name:"Aston Martin DBS 770 Ultimate",
+year:"2024",
+hp:759,
+tq:900,
+zero:"3.2",
+quarter:"10.8",
+category:"Supercar",
+img:"images/dbs.jpeg"
+},
+
+
+{
+name:"McLaren 720S",
+year:"2021",
+hp:710,
+tq:770,
+zero:"2.7",
+quarter:"10.2",
+category:"Supercar",
+img:"images/720s.jpeg"
+},
+
+
+{
+name:"McLaren 750S",
+year:"2024",
+hp:740,
+tq:800,
+zero:"2.7",
+quarter:"10.0",
+category:"Supercar",
+img:"images/750s.jpeg"
+},
+
+
+{
+name:"McLaren 788HS",
+year:"2025",
+hp:788,
+tq:800,
+zero:"2.6",
+quarter:"9.8",
+category:"Supercar",
+img:"images/788.jpeg"
+},
+
+
+{
+name:"McLaren Artura",
+year:"2025",
+hp:690,
+tq:720,
+zero:"2.6",
+quarter:"10.4",
+category:"Supercar",
+img:"images/artura.jpeg"
+},
+
+
+{
+name:"McLaren P1",
+year:"2015",
+hp:903,
+tq:900,
+zero:"2.6",
+quarter:"9.8",
+category:"Hypercar",
+img:"images/p1.jpeg"
+},
+
+
+{
+name:"McLaren Senna",
+year:"2019",
+hp:789,
+tq:800,
+zero:"2.7",
+quarter:"9.9",
+category:"Hypercar",
+img:"images/senna.jpeg"
+},
+
+
+{
+name:"McLaren Speedtail",
+year:"2020",
+hp:1035,
+tq:1150,
+zero:"2.9",
+quarter:"9.8",
+category:"Hypercar",
+img:"images/speedtail.jpeg"
+},
+
+
+{
+name:"McLaren Elva",
+year:"2022",
+hp:804,
+tq:800,
+zero:"2.8",
+quarter:"10.1",
+category:"Hypercar",
+img:"images/elva.jpeg"
+},
+
+
+{
+name:"McLaren W1",
+year:"2025",
+hp:1258,
+tq:1340,
+zero:"2.7",
+quarter:"9.0",
+category:"Hypercar",
+img:"images/w1.jpeg"
+},
+
+
+{
+name:"BMW M5 Touring G99",
+year:"2025",
+hp:717,
+tq:1000,
+zero:"3.3",
+quarter:"11.0",
+category:"Sedan",
+img:"images/m5touring.jpeg"
+},
+
+
+{
+name:"BMW M3 CS G80",
+year:"2024",
+hp:543,
+tq:650,
+zero:"2.8",
+quarter:"10.7",
+category:"Sedan",
+img:"images/g80m3cs.jpeg"
+},
+
+
+{
+name:"BMW M3 CS Touring",
+year:"2025",
+hp:543,
+tq:650,
+zero:"3.1",
+quarter:"10.9",
+category:"Sedan",
+img:"images/m3cswagon.jpeg"
+},
+
+
+{
+name:"BMW M4 CS G82",
+year:"2025",
+hp:543,
+tq:650,
+zero:"2.8",
+quarter:"10.7",
+category:"Coupe",
+img:"images/m4cs.jpeg"
+},
+
+
+{
+name:"BMW M5 G90 Competition",
+year:"2025",
+hp:717,
+tq:1000,
+zero:"3.4",
+quarter:"10.9",
+category:"Sedan",
+img:"images/g90.jpeg"
+},
+
+
+{
+name:"Night Fury Nissan GT-R R35",
+year:"2024",
+hp:2500,
+tq:2200,
+zero:"1.3",
+quarter:"6.5",
+category:"Supercar",
+img:"images/nightfury.jpeg"
+},
+
+
+{
+name:"R44 Performance BMW M2",
+year:"2025",
+hp:1500,
+tq:1200,
+zero:"1.67",
+quarter:"8.2",
+category:"Coupe",
+img:"images/r44.jpeg"
+},
+
+
+{
+name:"Jun II Nissan Skyline GT-R R32",
+year:"1993",
+hp:2000,
+tq:1800,
+zero:"1.02",
+quarter:"6.37",
+category:"Coupe",
+img:"images/junii.jpeg"
+},
+
+
+{
+name:"Hyundai Elantra",
+year:"2022",
+hp:147,
+tq:132,
+zero:"7.91",
+quarter:"15.9",
+category:"Sedan",
+img:"images/elantra.jpeg"
+},
+
+
+{
+name:"Nissan Sentra",
+year:"2026",
+hp:149,
+tq:146,
+zero:"8.5",
+quarter:"16.7",
+category:"Sedan",
+img:"images/sentra.jpeg"
+},
+
+
+{
+name:"Toyota Corolla",
+year:"2022",
+hp:139,
+tq:126,
+zero:"8.8",
+quarter:"16.9",
+category:"Sedan",
+img:"images/corolla.jpeg"
+},
+
+
+{
+name:"Honda Civic",
+year:"2025",
+hp:150,
+tq:133,
+zero:"8.1",
+quarter:"16.2",
+category:"Sedan",
+img:"images/civic.jpeg"
+},
+
+
+{
+name:"Mazda3",
+year:"2025",
+hp:191,
+tq:186,
+zero:"7.0",
+quarter:"15.5",
+category:"Sedan",
+img:"images/mazda3.jpeg"
+},
+
+
+{
+name:"BMW X1 M35i",
+year:"2025",
+hp:312,
+tq:400,
+zero:"4.4",
+quarter:"13.0",
+category:"SUV",
+img:"images/x1m.jpeg"
+},
+
+
+{
+name:"BMW X2 M35i",
+year:"2025",
+hp:312,
+tq:400,
+zero:"4.4",
+quarter:"13.1",
+category:"SUV",
+img:"images/x2m.jpeg"
+},
+
+
+{
+name:"BMW X3 M Competition",
+year:"2025",
+hp:523,
+tq:650,
+zero:"3.2",
+quarter:"11.4",
+category:"SUV",
+img:"images/x3m.jpeg"
+},
+
+
+{
+name:"BMW X4 M Competition",
+year:"2025",
+hp:523,
+tq:650,
+zero:"3.3",
+quarter:"11.5",
+category:"SUV",
+img:"images/x4m.jpeg"
+},
+
+
+{
+name:"BMW X5 M Competition",
+year:"2025",
+hp:617,
+tq:750,
+zero:"3.3",
+quarter:"11.3",
+category:"SUV",
+img:"images/x5m.jpeg"
+},
+
+
+{
+name:"BMW X6 M Competition",
+year:"2025",
+hp:617,
+tq:750,
+zero:"3.4",
+quarter:"11.4",
+category:"SUV",
+img:"images/x6m.jpeg"
+},
+
+
+{
+name:"BMW X7 M60i",
+year:"2025",
+hp:523,
+tq:750,
+zero:"4.1",
+quarter:"12.2",
+category:"SUV",
+img:"images/x7m.jpeg"
+},
+
+
+{
+name:"Toyota GR RAV4",
+year:"2026",
+hp:320,
+tq:430,
+zero:"5.0",
+quarter:"13.5",
+category:"SUV",
+img:"images/grrav4.jpeg"
+},
+
+
+{
+name:"Toyota Highlander",
+year:"2025",
+hp:265,
+tq:420,
+zero:"6.7",
+quarter:"15.0",
+category:"SUV",
+img:"images/highlander.jpeg"
+},
+
+
+{
+name:"Toyota 4Runner TRD Pro",
+year:"2025",
+hp:326,
+tq:465,
+zero:"6.5",
+quarter:"14.8",
+category:"SUV",
+img:"images/4runner.jpeg"
+},
+
+
+{
+name:"Toyota Tundra TRD Pro",
+year:"2025",
+hp:437,
+tq:790,
+zero:"5.7",
+quarter:"14.2",
+category:"Truck",
+img:"images/tundra.jpeg"
+},
+
+
+{
+name:"Toyota Tacoma TRD Pro",
+year:"2025",
+hp:326,
+tq:465,
+zero:"6.0",
+quarter:"14.5",
+category:"Truck",
+img:"images/trdtacoma.jpeg"
+},
+
+
+{
+name:"Toyota Corolla Cross",
+year:"2025",
+hp:169,
+tq:205,
+zero:"8.8",
+quarter:"16.6",
+category:"SUV",
+img:"images/corollacross.jpeg"
+},
+
+
+{
+name:"Hyundai Sonata N Line",
+year:"2026",
+hp:290,
+tq:311,
+zero:"5.0",
+quarter:"13.6",
+category:"Sedan",
+img:"images/sonata.jpeg"
+},
+
+
+{
+name:"Hyundai Tucson N Line",
+year:"2026",
+hp:231,
+tq:258,
+zero:"7.0",
+quarter:"15.4",
+category:"SUV",
+img:"images/tucson.jpeg"
+},
+
+
+{
+name:"Hyundai Santa Fe",
+year:"2026",
+hp:277,
+tq:311,
+zero:"6.3",
+quarter:"14.8",
+category:"SUV",
+img:"images/santafe.jpeg"
+},
+
+
+{
+name:"Hyundai Palisade",
+year:"2026",
+hp:329,
+tq:339,
+zero:"6.5",
+quarter:"14.9",
+category:"SUV",
+img:"images/palisade.jpeg"
+},
+
+
+{
+name:"Hyundai Kona N",
+year:"2023",
+hp:276,
+tq:289,
+zero:"5.2",
+quarter:"13.8",
+category:"SUV",
+img:"images/kona.jpeg"
+},
+
+
+{
+name:"Hyundai i20",
+year:"2025",
+hp:99,
+tq:172,
+zero:"10.5",
+quarter:"17.8",
+category:"Hatchback",
+img:"images/i20.jpeg"
+},
+
+
+{
+name:"Hyundai i20 N",
+year:"2025",
+hp:201,
+tq:275,
+zero:"6.2",
+quarter:"14.7",
+category:"Hatchback",
+img:"images/i20n.jpeg"
+},
+
+
+{
+name:"Hyundai Veloster N",
+year:"2022",
+hp:275,
+tq:289,
+zero:"5.1",
+quarter:"13.7",
+category:"Hatchback",
+img:"images/veloster.jpeg"
+},
+
+
+{
+name:"Hyundai IONIQ 5 N",
+year:"2025",
+hp:641,
+tq:770,
+zero:"3.2",
+quarter:"11.3",
+category:"SUV",
+img:"images/ioniq5n.jpeg"
+},
+
+
+{
+name:"Hyundai IONIQ 6 N",
+year:"2026",
+hp:641,
+tq:770,
+zero:"3.1",
+quarter:"11.1",
+category:"Sedan",
+img:"images/ioniq6n.jpeg"
+},
+
+
+{
+name:"Hyundai N Vision 74",
+year:"2026",
+hp:670,
+tq:900,
+zero:"3.0",
+quarter:"10.9",
+category:"Supercar",
+img:"images/nvision74.jpeg"
+},
+
+
+{
+name:"Chevrolet Corvette C7 Z06",
+year:"2019",
+hp:650,
+tq:650,
+zero:"3.0",
+quarter:"10.9",
+category:"Coupe",
+img:"images/c7z06.jpeg"
+},
+
+
+{
+name:"Chevrolet Corvette C8 Z06",
+year:"2024",
+hp:670,
+tq:624,
+zero:"2.7",
+quarter:"10.6",
+category:"Coupe",
+img:"images/c8z06.jpeg"
+},
+
+
+{
+name:"Chevrolet Corvette C5",
+year:"2004",
+hp:350,
+tq:360,
+zero:"4.5",
+quarter:"12.8",
+category:"Coupe",
+img:"images/c5.jpeg"
+},
+
+
+{
+name:"Chevrolet Corvette C4 ZR-1",
+year:"1995",
+hp:405,
+tq:385,
+zero:"4.3",
+quarter:"12.7",
+category:"Coupe",
+img:"images/c4.jpeg"
+},
+
+
+{
+name:"Chevrolet Corvette C8 ZR1",
+year:"2025",
+hp:1064,
+tq:828,
+zero:"2.3",
+quarter:"9.6",
+category:"Supercar",
+img:"images/c8zr1.jpeg"
+},
+
+
+{
+name:"Chevrolet Corvette C6 Grand Sport",
+year:"2013",
+hp:430,
+tq:424,
+zero:"3.9",
+quarter:"12.0",
+category:"Coupe",
+img:"images/c6grandsport.jpeg"
+},
+
+
+{
+name:"BMW M5 E39",
+year:"2003",
+hp:394,
+tq:500,
+zero:"4.7",
+quarter:"13.0",
+category:"Sedan",
+img:"images/e39.jpeg"
+},
+
+
+{
+name:"BMW M5 E60",
+year:"2010",
+hp:500,
+tq:520,
+zero:"4.0",
+quarter:"12.0",
+category:"Sedan",
+img:"images/e60.jpeg"
+},
+
+
+{
+name:"BMW M5 F10",
+year:"2016",
+hp:600,
+tq:700,
+zero:"3.5",
+quarter:"11.5",
+category:"Sedan",
+img:"images/f10.jpeg"
+},
+
+
+{
+name:"BMW M5 F90 Competition",
+year:"2023",
+hp:617,
+tq:750,
+zero:"2.8",
+quarter:"10.7",
+category:"Sedan",
+img:"images/f90.jpeg"
+},
+
+
+{
+name:"Pagani Huayra BC",
+year:"2017",
+hp:791,
+tq:1050,
+zero:"2.7",
+quarter:"10.2",
+category:"Hypercar",
+img:"images/huaryabc.jpeg"
+},
+
+
+{
+name:"Pagani Huayra Coupe",
+year:"2013",
+hp:730,
+tq:1000,
+zero:"3.0",
+quarter:"10.5",
+category:"Hypercar",
+img:"images/huarya.jpeg"
+},
+
+
+{
+name:"Pagani Huayra Imola",
+year:"2021",
+hp:827,
+tq:1100,
+zero:"2.6",
+quarter:"9.9",
+category:"Hypercar",
+img:"images/huaryaimola.jpeg"
+},
+
+
+{
+name:"Pagani Huayra R Evo",
+year:"2024",
+hp:900,
+tq:770,
+zero:"2.5",
+quarter:"9.8",
+category:"Race Cars / Track Cars",
+img:"images/huaryarevo.jpeg"
+},
+
+{
+name:"Pagani Huayra Codalunga",
+year:"2023",
+hp:840,
+tq:1100,
+zero:"2.7",
+quarter:"10.0",
+category:"Hypercar",
+img:"images/huaryacodalunga.jpeg"
+},
+
+
+{
+name:"Pagani Huayra Tricolore",
+year:"2021",
+hp:840,
+tq:1100,
+zero:"2.7",
+quarter:"10.0",
+category:"Hypercar",
+img:"images/huaryatricolore.jpeg"
+},
+
+
+{
+name:"Pagani Huayra Epitome",
+year:"2024",
+hp:864,
+tq:1100,
+zero:"2.6",
+quarter:"9.9",
+category:"Hypercar",
+img:"images/huaryaepitome.jpeg"
+},
+
+
+{
+name:"Pagani Huayra 70° Diritto",
+year:"2024",
+hp:864,
+tq:1100,
+zero:"2.6",
+quarter:"9.9",
+category:"Hypercar",
+img:"images/huarya70derecho.jpeg"
+},
+
+
+{
+name:"Pagani Zonda C12",
+year:"1999",
+hp:394,
+tq:571,
+zero:"4.2",
+quarter:"12.2",
+category:"Hypercar",
+img:"images/zondac12.jpeg"
+},
+
+
+{
+name:"Pagani Zonda F Roadster",
+year:"2008",
+hp:650,
+tq:780,
+zero:"3.4",
+quarter:"11.1",
+category:"Hypercar",
+img:"images/zondaf&froadster.jpeg"
+},
+
+
+{
+name:"Pagani Zonda Cinque",
+year:"2009",
+hp:678,
+tq:780,
+zero:"3.3",
+quarter:"10.9",
+category:"Hypercar",
+img:"images/zondacinque.jpeg"
+},
+
+
+{
+name:"Pagani Zonda Tricolore",
+year:"2011",
+hp:678,
+tq:780,
+zero:"3.3",
+quarter:"10.9",
+category:"Hypercar",
+img:"images/zondatricolore.jpeg"
+},
+
+
+{
+name:"Pagani Zonda R",
+year:"2010",
+hp:750,
+tq:710,
+zero:"2.8",
+quarter:"10.1",
+category:"Race Cars / Track Cars",
+img:"images/zondar.jpeg"
+},
+
+
+{
+name:"Pagani Zonda HP Barchetta",
+year:"2018",
+hp:789,
+tq:850,
+zero:"2.9",
+quarter:"10.2",
+category:"Hypercar",
+img:"images/zondabarchetta.jpeg"
+},
+
+
+{
+name:"Pagani Utopia",
+year:"2024",
+hp:852,
+tq:1100,
+zero:"2.6",
+quarter:"9.9",
+category:"Hypercar",
+img:"images/utopia.jpeg"
+},
+
+
+{
+name:"Pagani Alisea",
+year:"2026",
+hp:880,
+tq:1150,
+zero:"2.4",
+quarter:"9.6",
+category:"Hypercar",
+img:"images/alisea.jpeg"
+},
+
+
+{
+name:"Jeep Grand Cherokee Trackhawk",
+year:"2021",
+hp:707,
+tq:875,
+zero:"3.5",
+quarter:"11.6",
+category:"SUV",
+img:"images/trackhawk.jpeg"
+},
+
+
+{
+name:"Dodge Durango SRT Hellcat",
+year:"2025",
+hp:710,
+tq:875,
+zero:"3.5",
+quarter:"11.5",
+category:"SUV",
+img:"images/srtdurango.jpeg"
+},
+
+
+{
+name:"Dodge Viper",
+year:"2017",
+hp:645,
+tq:814,
+zero:"3.4",
+quarter:"11.2",
+category:"Sports Car",
+img:"images/viper.jpeg"
+},
+
+
+{
+name:"Dodge Viper ACR",
+year:"2017",
+hp:645,
+tq:814,
+zero:"3.3",
+quarter:"11.0",
+category:"Sports Car",
+img:"images/viperacr.jpeg"
+},
+
+
+{
+name:"Dodge Dart",
+year:"2016",
+hp:184,
+tq:236,
+zero:"7.5",
+quarter:"15.8",
+category:"Sedan",
+img:"images/dart.jpeg"
+},
+
+
+{
+name:"Chevrolet Trax",
+year:"2025",
+hp:137,
+tq:162,
+zero:"8.8",
+quarter:"16.8",
+category:"SUV",
+img:"images/trax.jpeg"
+},
+
+
+{
+name:"Chevrolet Equinox",
+year:"2025",
+hp:175,
+tq:203,
+zero:"8.5",
+quarter:"16.5",
+category:"SUV",
+img:"images/equinox.jpeg"
+},
+
+
+{
+name:"Chevrolet Blazer EV",
+year:"2025",
+hp:557,
+tq:879,
+zero:"3.4",
+quarter:"11.7",
+category:"SUV",
+img:"images/blazerev.jpeg"
+},
+
+
+{
+name:"Chevrolet Traverse",
+year:"2025",
+hp:328,
+tq:326,
+zero:"5.9",
+quarter:"14.3",
+category:"SUV",
+img:"images/traverse.jpeg"
+},
+
+
+{
+name:"Chevrolet Tahoe",
+year:"2025",
+hp:420,
+tq:460,
+zero:"5.8",
+quarter:"14.3",
+category:"SUV",
+img:"images/tahoe.jpeg"
+},
+
+
+{
+name:"Chevrolet Suburban",
+year:"2025",
+hp:420,
+tq:460,
+zero:"6.0",
+quarter:"14.5",
+category:"SUV",
+img:"images/suburban.jpeg"
+},
+
+
+{
+name:"Chevrolet Colorado ZR2",
+year:"2025",
+hp:310,
+tq:430,
+zero:"6.5",
+quarter:"14.8",
+category:"Truck",
+img:"images/colorado.jpeg"
+},
+
+
+{
+name:"Chevrolet Silverado 1500",
+year:"2025",
+hp:420,
+tq:495,
+zero:"5.5",
+quarter:"14.0",
+category:"Truck",
+img:"images/silverado1500.jpeg"
+},
+
+
+{
+name:"Chevrolet Silverado 3500 HD",
+year:"2025",
+hp:470,
+tq:975,
+zero:"6.5",
+quarter:"14.8",
+category:"Truck",
+img:"images/silverado3500.jpeg"
+},
+
+{
+name:"Alfa Romeo Giulia Quadrifoglio",
+year:"2024",
+hp:505,
+tq:600,
+zero:"3.8",
+quarter:"11.8",
+category:"Sedan",
+img:"images/giulia.jpeg"
+},
+
+
+{
+name:"Alfa Romeo Giulia GTAm",
+year:"2021",
+hp:533,
+tq:600,
+zero:"3.6",
+quarter:"11.5",
+category:"Sedan",
+img:"images/giuliagtam.jpeg"
+},
+
+
+{
+name:"Alfa Romeo Stelvio Quadrifoglio",
+year:"2024",
+hp:505,
+tq:600,
+zero:"3.6",
+quarter:"11.7",
+category:"SUV",
+img:"images/stelvio.jpeg"
+},
+
+
+{
+name:"Alfa Romeo Tonale Plug-in Hybrid Q4",
+year:"2024",
+hp:285,
+tq:470,
+zero:"5.6",
+quarter:"14.1",
+category:"SUV",
+img:"images/tonale.jpeg"
+},
+
+
+{
+name:"Alfa Romeo Junior Veloce",
+year:"2025",
+hp:280,
+tq:345,
+zero:"5.7",
+quarter:"14.2",
+category:"SUV",
+img:"images/junior.jpeg"
+},
+
+
+{
+name:"Alfa Romeo 33 Stradale",
+year:"2024",
+hp:620,
+tq:730,
+zero:"3.0",
+quarter:"11.0",
+category:"Supercar",
+img:"images/33stradale.jpeg"
+},
+
+
+{
+name:"Alfa Romeo 4C",
+year:"2020",
+hp:237,
+tq:350,
+zero:"4.1",
+quarter:"12.8",
+category:"Sports Car",
+img:"images/4c.jpeg"
+},
+
+
+{
+name:"Alfa Romeo 8C Competizione",
+year:"2010",
+hp:444,
+tq:480,
+zero:"4.2",
+quarter:"12.4",
+category:"Sports Car",
+img:"images/8ccompetizione.jpeg"
+},
+
+
+{
+name:"Alfa Romeo 166 3.2 V6",
+year:"2007",
+hp:240,
+tq:289,
+zero:"7.2",
+quarter:"15.2",
+category:"Sedan",
+img:"images/166.jpeg"
+},
+
+
+{
+name:"Mazda MX-5 RF Club",
+year:"2025",
+hp:181,
+tq:205,
+zero:"5.7",
+quarter:"14.3",
+category:"Sports Car",
+img:"images/mx5.jpeg"
+},
+
+
+{
+name:"Mazda MX-5 Miata",
+year:"1997",
+hp:133,
+tq:152,
+zero:"7.9",
+quarter:"16.0",
+category:"Sports Car",
+img:"images/miata.jpeg"
+},
+
+
+{
+name:"Mazda CX-30 Turbo",
+year:"2025",
+hp:250,
+tq:434,
+zero:"5.8",
+quarter:"14.3",
+category:"SUV",
+img:"images/cx30.jpeg"
+},
+
+
+{
+name:"Mazda CX-5 Turbo Signature",
+year:"2025",
+hp:256,
+tq:434,
+zero:"6.1",
+quarter:"14.6",
+category:"SUV",
+img:"images/cx5.jpeg"
+},
+
+
+{
+name:"Mazda CX-50 Turbo Meridian Edition",
+year:"2025",
+hp:256,
+tq:434,
+zero:"5.9",
+quarter:"14.4",
+category:"SUV",
+img:"images/cx50.jpeg"
+},
+
+
+{
+name:"Mazda CX-70 Turbo S",
+year:"2025",
+hp:340,
+tq:500,
+zero:"5.8",
+quarter:"14.1",
+category:"SUV",
+img:"images/cx70.jpeg"
+},
+
+
+{
+name:"Mazda CX-90 Turbo S",
+year:"2025",
+hp:340,
+tq:500,
+zero:"6.0",
+quarter:"14.3",
+category:"SUV",
+img:"images/cx90.jpeg"
+},
+
+
+{
+name:"Mazda6 2.5 Turbo",
+year:"2021",
+hp:250,
+tq:434,
+zero:"6.1",
+quarter:"14.6",
+category:"Sedan",
+img:"images/mazda6.jpeg"
+},
+
+
+{
+name:"Mazda RX-7 Spirit R",
+year:"2002",
+hp:276,
+tq:314,
+zero:"4.9",
+quarter:"13.5",
+category:"Sports Car",
+img:"images/rx7.jpeg"
+},
+
+
+{
+name:"Mazda RX-8 R3",
+year:"2011",
+hp:232,
+tq:211,
+zero:"6.0",
+quarter:"14.4",
+category:"Sports Car",
+img:"images/rx8.jpeg"
+},
+
+{
+name:"Maruti Suzuki Alto K10",
+year:"2025",
+hp:67,
+tq:89,
+zero:"13.5",
+quarter:"18.8",
+category:"Hatchback",
+img:"images/alto.jpeg"
+},
+
+
+{
+name:"Maruti Suzuki Celerio",
+year:"2025",
+hp:67,
+tq:89,
+zero:"13.2",
+quarter:"18.5",
+category:"Hatchback",
+img:"images/celerio.jpeg"
+},
+
+
+{
+name:"Maruti Suzuki WagonR",
+year:"2025",
+hp:89,
+tq:113,
+zero:"11.8",
+quarter:"17.4",
+category:"Hatchback",
+img:"images/wagonr.jpeg"
+},
+
+
+{
+name:"Suzuki Swift Sport",
+year:"2025",
+hp:138,
+tq:230,
+zero:"7.9",
+quarter:"15.8",
+category:"Hatchback",
+img:"images/swiftsport.jpeg"
+},
+
+
+{
+name:"Maruti Suzuki Dzire",
+year:"2025",
+hp:82,
+tq:112,
+zero:"12.2",
+quarter:"17.8",
+category:"Sedan",
+img:"images/dzire.jpeg"
+},
+
+
+{
+name:"Maruti Suzuki XL6",
+year:"2025",
+hp:102,
+tq:137,
+zero:"11.8",
+quarter:"17.2",
+category:"SUV",
+img:"images/xl6.jpeg"
+},
+
+
+{
+name:"Maruti Suzuki Brezza",
+year:"2025",
+hp:102,
+tq:137,
+zero:"11.3",
+quarter:"16.8",
+category:"SUV",
+img:"images/brezza.jpeg"
+},
+
+
+{
+name:"Maruti Suzuki Baleno RS",
+year:"2020",
+hp:100,
+tq:150,
+zero:"10.8",
+quarter:"16.4",
+category:"Hatchback",
+img:"images/balenors.jpeg"
+},
+
+
+{
+name:"Maruti Suzuki Ciaz",
+year:"2025",
+hp:103,
+tq:138,
+zero:"10.8",
+quarter:"16.5",
+category:"Sedan",
+img:"images/ciaz.jpeg"
+},
+
+
+{
+name:"Maruti Suzuki Grand Vitara Strong Hybrid",
+year:"2025",
+hp:114,
+tq:141,
+zero:"10.2",
+quarter:"16.1",
+category:"SUV",
+img:"images/grandvitara.jpeg"
+},
+
+
+{
+name:"Suzuki Jimny",
+year:"2025",
+hp:101,
+tq:130,
+zero:"11.5",
+quarter:"17.0",
+category:"SUV",
+img:"images/jimny.jpeg"
+},
+
+
+{
+name:"HSV Clubsport R8",
+year:"2017",
+hp:410,
+tq:570,
+zero:"4.7",
+quarter:"12.7",
+category:"Sedan",
+img:"images/vehsvclubsport.jpeg"
+},
+
+
+{
+name:"HSV GTS",
+year:"2017",
+hp:576,
+tq:740,
+zero:"4.2",
+quarter:"12.1",
+category:"Sedan",
+img:"images/hsvgts.jpeg"
+},
+
+
+{
+name:"HSV GTSR W1",
+year:"2017",
+hp:635,
+tq:815,
+zero:"4.0",
+quarter:"11.8",
+category:"Sedan",
+img:"images/gtsrw1.jpeg"
+},
+
+
+{
+name:"Holden Commodore SS-V Redline",
+year:"2017",
+hp:413,
+tq:570,
+zero:"4.8",
+quarter:"12.8",
+category:"Sedan",
+img:"images/commodoressv.jpeg"
+},
+
+
+{
+name:"RAM 1500 TRX",
+year:"2024",
+hp:702,
+tq:881,
+zero:"3.7",
+quarter:"11.8",
+category:"Truck",
+img:"images/trx.jpeg"
+},
+
+
+{
+name:"RAM 1500",
+year:"2025",
+hp:540,
+tq:706,
+zero:"4.8",
+quarter:"13.2",
+category:"Truck",
+img:"images/ram1500.jpeg"
+},
+
+
+{
+name:"RAM 2500 Power Wagon",
+year:"2025",
+hp:405,
+tq:582,
+zero:"6.5",
+quarter:"15.0",
+category:"Truck",
+img:"images/ram2500.jpeg"
+},
+
+
+{
+name:"RAM 3500 High Output Cummins",
+year:"2025",
+hp:430,
+tq:1458,
+zero:"7.2",
+quarter:"15.5",
+category:"Truck",
+img:"images/ram3500.jpeg"
+},
+
+
+{
+name:"Dodge RAM SRT-10",
+year:"2005",
+hp:500,
+tq:712,
+zero:"4.9",
+quarter:"13.1",
+category:"Truck",
+img:"images/ramsrt10.jpeg"
+},
+{
+  name: "2027 Ram 1500 Rumble Bee SRT",
+  year: "2027",
+  hp: 777,
+  tq: 680,
+  zero: "3.4",
+  quarter: "11.6",
+  category: "Truck",
+  img: "images/rumblebeesrt.jpeg"
+},
+
+
+{
+  name: "Ford Maverick",
+  year: "2025",
+  hp: 250,
+  tq: 277,
+  zero: "6.3",
+  quarter: "14.8",
+  category: "Truck",
+  img: "images/maverick.jpeg"
+},
+
+
+{
+  name: "Ford Ranger",
+  year: "2025",
+  hp: 270,
+  tq: 430,
+  zero: "6.5",
+  quarter: "15.0",
+  category: "Truck",
+  img: "images/ranger.jpeg"
+},
+
+
+{
+  name: "Ford F-150",
+  year: "2025",
+  hp: 400,
+  tq: 500,
+  zero: "5.5",
+  quarter: "14.1",
+  category: "Truck",
+  img: "images/f150.jpeg"
+},
+
+
+{
+  name: "Ford F-250 Super Duty",
+  year: "2025",
+  hp: 500,
+  tq: 1200,
+  zero: "7.0",
+  quarter: "15.5",
+  category: "Truck",
+  img: "images/f250.jpeg"
+},
+
+
+{
+  name: "Ford F-350 Super Duty",
+  year: "2025",
+  hp: 500,
+  tq: 1200,
+  zero: "7.2",
+  quarter: "15.8",
+  category: "Truck",
+  img: "images/f350.jpeg"
+},
+
+
+{
+  name: "Ford F-450 Super Duty",
+  year: "2025",
+  hp: 500,
+  tq: 1200,
+  zero: "7.8",
+  quarter: "16.2",
+  category: "Truck",
+  img: "images/f450.jpeg"
+},
+
+
+{
+  name: "Ford F-150 Lightning",
+  year: "2025",
+  hp: 580,
+  tq: 775,
+  zero: "3.8",
+  quarter: "12.4",
+  category: "Truck",
+  img: "images/f150lightning.jpeg"
+},
+
+
+{
+  name: "Ford F-150 Raptor",
+  year: "2025",
+  hp: 450,
+  tq: 510,
+  zero: "5.2",
+  quarter: "13.7",
+  category: "Truck",
+  img: "images/f150raptor.jpeg"
+},
+
+
+{
+  name: "Ford F-150 Raptor R",
+  year: "2025",
+  hp: 720,
+  tq: 640,
+  zero: "3.7",
+  quarter: "11.8",
+  category: "Truck",
+  img: "images/f150raptorr.jpeg"
+},
+
+
+{
+  name: "Ford Ranger Raptor",
+  year: "2025",
+  hp: 430,
+  tq: 430,
+  zero: "5.5",
+  quarter: "14.0",
+  category: "Truck",
+  img: "images/rangerraptor.jpeg"
+},
+
+
+{
+  name: "Ford Maverick Lobo",
+  year: "2025",
+  hp: 250,
+  tq: 277,
+  zero: "5.9",
+  quarter: "14.5",
+  category: "Truck",
+  img: "images/mavericklobo.jpeg"
+},
+
+
+{
+  name: "Shelby F-150",
+  year: "2025",
+  hp: 785,
+  tq: 685,
+  zero: "4.1",
+  quarter: "12.2",
+  category: "Truck",
+  img: "images/f150shelby.jpeg"
+},
+
+
+{
+  name: "Shelby F-150 Super Snake",
+  year: "2025",
+  hp: 830,
+  tq: 850,
+  zero: "3.6",
+  quarter: "11.7",
+  category: "Truck",
+  img: "images/f150shelbysupersnake.jpeg"
+},
+
+{
+  name: "Acura Integra",
+  year: "2026",
+  hp: 200,
+  tq: 192,
+  zero: "7.0",
+  quarter: "15.3",
+  category: "Hatchback",
+  img: "images/integra.jpeg"
+},
+
+
+{
+  name: "Acura Integra Type S",
+  year: "2026",
+  hp: 320,
+  tq: 310,
+  zero: "5.1",
+  quarter: "13.7",
+  category: "Hatchback",
+  img: "images/integratypes.jpeg"
+},
+
+
+{
+  name: "Acura TLX",
+  year: "2026",
+  hp: 272,
+  tq: 280,
+  zero: "5.9",
+  quarter: "14.5",
+  category: "Sedan",
+  img: "images/tlx.jpeg"
+},
+
+
+{
+  name: "Acura TLX Type S",
+  year: "2026",
+  hp: 355,
+  tq: 354,
+  zero: "4.5",
+  quarter: "13.3",
+  category: "Sedan",
+  img: "images/tlxtypes.jpeg"
+},
+
+
+{
+  name: "Acura ADX",
+  year: "2026",
+  hp: 190,
+  tq: 179,
+  zero: "8.7",
+  quarter: "16.5",
+  category: "SUV",
+  img: "images/adx.jpeg"
+},
+
+
+{
+  name: "Acura RDX",
+  year: "2026",
+  hp: 272,
+  tq: 280,
+  zero: "6.2",
+  quarter: "14.7",
+  category: "SUV",
+  img: "images/rdx.jpeg"
+},
+
+
+{
+  name: "Acura MDX Type S",
+  year: "2026",
+  hp: 355,
+  tq: 354,
+  zero: "5.5",
+  quarter: "13.9",
+  category: "SUV",
+  img: "images/mdxtypes.jpeg"
+},
+
+
+{
+  name: "2019 Acura NSX",
+  year: "2019",
+  hp: 573,
+  tq: 476,
+  zero: "2.9",
+  quarter: "11.2",
+  category: "Supercar",
+  img: "images/nsx2.jpeg"
+},
+
+
+{
+  name: "1998 Acura NSX",
+  year: "1998",
+  hp: 290,
+  tq: 224,
+  zero: "5.0",
+  quarter: "13.5",
+  category: "Sports Car",
+  img: "images/nsx1.jpeg"
+},
+
+
+{
+  name: "2022 Acura NSX Type S",
+  year: "2022",
+  hp: 600,
+  tq: 492,
+  zero: "2.7",
+  quarter: "10.9",
+  category: "Supercar",
+  img: "images/nsx.jpeg"
+},
+
+
+{
+  name: "Acura RSX Type S",
+  year: "2006",
+  hp: 210,
+  tq: 143,
+  zero: "6.5",
+  quarter: "14.8",
+  category: "Hatchback",
+  img: "images/rsx.jpeg"
+},
+
+
+{
+  name: "Acura TSX",
+  year: "2014",
+  hp: 201,
+  tq: 170,
+  zero: "7.0",
+  quarter: "15.2",
+  category: "Sedan",
+  img: "images/tsx.jpeg"
+},
+
+
+{
+  name: "Tesla Roadster",
+  year: "2008",
+  hp: 248,
+  tq: 276,
+  zero: "3.7",
+  quarter: "12.6",
+  category: "Coupe",
+  img: "images/roadster.jpeg"
+},
+
+
+{
+  name: "Tesla Model S",
+  year: "2025",
+  hp: 670,
+  tq: 713,
+  zero: "3.1",
+  quarter: "11.4",
+  category: "Sedan",
+  img: "images/models.jpeg"
+},
+
+
+{
+  name: "Tesla Model X",
+  year: "2025",
+  hp: 670,
+  tq: 713,
+  zero: "3.8",
+  quarter: "12.0",
+  category: "SUV",
+  img: "images/modelx.jpeg"
+},
+
+
+{
+  name: "Tesla Model 3",
+  year: "2025",
+  hp: 363,
+  tq: 309,
+  zero: "4.9",
+  quarter: "13.6",
+  category: "Sedan",
+  img: "images/model3.jpeg"
+},
+
+
+{
+  name: "Tesla Model Y",
+  year: "2025",
+  hp: 384,
+  tq: 376,
+  zero: "4.6",
+  quarter: "13.2",
+  category: "SUV",
+  img: "images/modely.jpeg"
+},
+
+
+{
+  name: "Tesla Cybertruck",
+  year: "2025",
+  hp: 845,
+  tq: 930,
+  zero: "2.6",
+  quarter: "11.0",
+  category: "Truck",
+  img: "images/cybertruck.jpeg"
+},
+
+{
+  name: "Tesla Model X Plaid",
+  year: "2025",
+  hp: 1020,
+  tq: 752,
+  zero: "2.5",
+  quarter: "9.9",
+  category: "SUV",
+  img: "images/modelxplaid.jpeg"
+},
+
+
+{
+  name: "Tesla Model 3 Performance",
+  year: "2025",
+  hp: 510,
+  tq: 554,
+  zero: "2.9",
+  quarter: "11.0",
+  category: "Sedan",
+  img: "images/model3performance.jpeg"
+},
+
+
+{
+  name: "Tesla Model Y Performance",
+  year: "2025",
+  hp: 455,
+  tq: 497,
+  zero: "3.5",
+  quarter: "11.9",
+  category: "SUV",
+  img: "images/modelyperformance.jpeg"
+},
+
+
+{
+  name: "Saleen S7",
+  year: "2001",
+  hp: 550,
+  tq: 525,
+  zero: "3.9",
+  quarter: "11.8",
+  category: "Supercar",
+  img: "images/s7.jpeg"
+},
+
+
+{
+  name: "Saleen S7 LM",
+  year: "2017",
+  hp: 1000,
+  tq: 850,
+  zero: "2.7",
+  quarter: "9.9",
+  category: "Supercar",
+  img: "images/s7lm.jpeg"
+},
+
+
+{
+  name: "Saleen S1 Street",
+  year: "2020",
+  hp: 450,
+  tq: 350,
+  zero: "3.5",
+  quarter: "11.8",
+  category: "Coupe",
+  img: "images/s1street.jpeg"
+},
+
+
+{
+  name: "Toyota GR010 Hybrid",
+  year: "2025",
+  hp: 670,
+  tq: 516,
+  zero: "2.5",
+  quarter: "10.2",
+  category: "Race Cars / Track Cars",
+  img: "images/gr010hybrid.jpeg"
+},
+
+
+{
+  name: "Porsche 963",
+  year: "2025",
+  hp: 680,
+  tq: 516,
+  zero: "2.5",
+  quarter: "10.2",
+  category: "Race Cars / Track Cars",
+  img: "images/963.jpeg"
+},
+
+
+{
+  name: "Ferrari 499P",
+  year: "2025",
+  hp: 680,
+  tq: 516,
+  zero: "2.5",
+  quarter: "10.2",
+  category: "Race Cars / Track Cars",
+  img: "images/499p.jpeg"
+},
+
+
+{
+  name: "Ford Mustang LMGT3",
+  year: "2025",
+  hp: 550,
+  tq: 479,
+  zero: "3.4",
+  quarter: "11.5",
+  category: "Race Cars / Track Cars",
+  img: "images/mustanglmgt3.jpeg"
+},
+
+
+{
+  name: "Chevrolet Corvette Z06 GT3.R",
+  year: "2025",
+  hp: 600,
+  tq: 460,
+  zero: "3.2",
+  quarter: "11.3",
+  category: "Race Cars / Track Cars",
+  img: "images/corvettelmgt3r.jpeg"
+},
+
+
+{
+  name: "Ferrari 296 LMGT3",
+  year: "2025",
+  hp: 600,
+  tq: 524,
+  zero: "3.1",
+  quarter: "11.2",
+  category: "Race Cars / Track Cars",
+  img: "images/ferrari296lmgt3.jpeg"
+},
+
+
+{
+  name: "Porsche 911 GT3 R",
+  year: "2025",
+  hp: 565,
+  tq: 343,
+  zero: "3.3",
+  quarter: "11.4",
+  category: "Race Cars / Track Cars",
+  img: "images/911gt3r.jpeg"
+},
+
+
+{
+  name: "Porsche 919 Hybrid Evo",
+  year: "2018",
+  hp: 1160,
+  tq: 950,
+  zero: "2.2",
+  quarter: "7.7",
+  category: "Race Cars / Track Cars",
+  img: "images/919hybridevo.jpeg"
+},
+
+
+{
+  name: "Mercedes-AMG ONE",
+  year: "2025",
+  hp: 1063,
+  tq: 782,
+  zero: "2.9",
+  quarter: "9.8",
+  category: "Hypercar",
+  img: "images/amgone.jpeg"
+},
+
+
+{
+  name: "BMW M4 GT3 EVO",
+  year: "2025",
+  hp: 590,
+  tq: 479,
+  zero: "3.0",
+  quarter: "11.0",
+  category: "Race Cars / Track Cars",
+  img: "images/m4gt3evo.jpeg"
+},
+
+{
+name:"BYD Seal AWD Performance",
+year:"2025",
+hp:523,
+tq:670,
+zero:"3.8",
+quarter:"11.8",
+category:"Sedan",
+brand:"BYD",
+country:"China",
+img:"images/seal.jpeg"
+},
+
+{
+name:"BYD Seal 6 DM-i Touring",
+year:"2025",
+hp:215,
+tq:300,
+zero:"7.5",
+quarter:"15.8",
+category:"Sedan",
+brand:"BYD",
+country:"China",
+img:"images/seal6dmitouring.jpeg"
+},
+
+{
+name:"BYD Sealion 5 DM-i",
+year:"2025",
+hp:194,
+tq:300,
+zero:"7.5",
+quarter:"15.8",
+category:"SUV",
+brand:"BYD",
+country:"China",
+img:"images/sealion5dmi.jpeg"
+},
+
+{
+name:"BYD Sealion 7 Performance AWD",
+year:"2025",
+hp:523,
+tq:690,
+zero:"4.5",
+quarter:"12.5",
+category:"SUV",
+brand:"BYD",
+country:"China",
+img:"images/sealion7.jpeg"
+},
+
+{
+name:"BYD Atto 2 DM-i",
+year:"2025",
+hp:194,
+tq:300,
+zero:"7.5",
+quarter:"15.8",
+category:"SUV",
+brand:"BYD",
+country:"China",
+img:"images/atto2dmi.jpeg"
+},
+
+{
+name:"BYD Han EV AWD",
+year:"2025",
+hp:509,
+tq:700,
+zero:"3.9",
+quarter:"11.7",
+category:"Sedan",
+brand:"BYD",
+country:"China",
+img:"images/han.jpeg"
+},
+
+{
+name:"BYD Tang EV AWD",
+year:"2025",
+hp:509,
+tq:700,
+zero:"4.5",
+quarter:"12.3",
+category:"SUV",
+brand:"BYD",
+country:"China",
+img:"images/tang.jpeg"
+},
+
+{
+name:"BYD Yangwang U7",
+year:"2025",
+hp:1287,
+tq:1680,
+zero:"2.9",
+quarter:"9.5",
+category:"Sedan",
+brand:"BYD",
+country:"China",
+img:"images/yangwangu7.jpeg"
+},
+
+{
+name:"BYD Yangwang U9 Extreme",
+year:"2025",
+hp:2959,
+tq:1680,
+zero:"1.8",
+quarter:"7.5",
+category:"Hypercar",
+brand:"BYD",
+country:"China",
+img:"images/yangwangu9extreme.jpeg"
+},
+
+{
+name:"BYD Yangwang U8",
+year:"2025",
+hp:1184,
+tq:1280,
+zero:"3.6",
+quarter:"10.8",
+category:"SUV",
+brand:"BYD",
+country:"China",
+img:"images/yangwangu8.jpeg"
+},
+
+{
+name:"BYD Yangwang U9",
+year:"2025",
+hp:1306,
+tq:1680,
+zero:"2.1",
+quarter:"9.0",
+category:"Hypercar",
+brand:"BYD",
+country:"China",
+img:"images/yangwangu9.jpeg"
+},
+
+{
+name:"Maserati MC20",
+year:"2025",
+hp:621,
+tq:730,
+zero:"2.9",
+quarter:"10.9",
+category:"Supercar",
+brand:"Maserati",
+country:"Italy",
+img:"images/mc20.jpeg"
+},
+
+{
+name:"Maserati GT2 Stradale",
+year:"2025",
+hp:631,
+tq:720,
+zero:"2.8",
+quarter:"10.7",
+category:"Supercar",
+brand:"Maserati",
+country:"Italy",
+img:"images/gt2stradale.jpeg"
+},
+
+{
+name:"Maserati GranTurismo Trofeo",
+year:"2025",
+hp:542,
+tq:650,
+zero:"3.3",
+quarter:"11.3",
+category:"Coupe",
+brand:"Maserati",
+country:"Italy",
+img:"images/granturismo.jpeg"
+},
+
+{
+name:"Maserati GranCabrio Folgore",
+year:"2025",
+hp:818,
+tq:1350,
+zero:"2.7",
+quarter:"10.6",
+category:"Convertible",
+brand:"Maserati",
+country:"Italy",
+img:"images/grancabriofolgore.jpeg"
+},
+
+{
+name:"Maserati Grecale Trofeo",
+year:"2025",
+hp:523,
+tq:620,
+zero:"3.6",
+quarter:"11.8",
+category:"SUV",
+brand:"Maserati",
+country:"Italy",
+img:"images/grecale.jpeg"
+},
+
+{
+name:"Maserati Grecale Folgore",
+year:"2025",
+hp:550,
+tq:820,
+zero:"4.0",
+quarter:"12.0",
+category:"SUV",
+brand:"Maserati",
+country:"Italy",
+img:"images/grecalefolgore.jpeg"
+},
+
+{
+name:"Maserati Levante Trofeo",
+year:"2025",
+hp:572,
+tq:730,
+zero:"3.8",
+quarter:"11.9",
+category:"SUV",
+brand:"Maserati",
+country:"Italy",
+img:"images/levante.jpeg"
+},
+
+{
+name:"Maserati Ghibli Trofeo",
+year:"2025",
+hp:572,
+tq:730,
+zero:"3.7",
+quarter:"11.6",
+category:"Sedan",
+brand:"Maserati",
+country:"Italy",
+img:"images/ghibli.jpeg"
+},
+
+{
+name:"Maserati MC12",
+year:"2005",
+hp:621,
+tq:652,
+zero:"3.6",
+quarter:"11.4",
+category:"Hypercar",
+brand:"Maserati",
+country:"Italy",
+img:"images/mc12.jpeg"
+},
+
+{
+name:"Maserati MCPura",
+year:"2026",
+hp:621,
+tq:730,
+zero:"2.8",
+quarter:"10.8",
+category:"Supercar",
+brand:"Maserati",
+country:"Italy",
+img:"images/mcpura.jpeg"
+},
+
+{
+name:"W Motors Lykan HyperSport",
+year:"2015",
+hp:780,
+tq:960,
+zero:"2.8",
+quarter:"10.9",
+category:"Hypercar",
+brand:"W Motors",
+country:"UAE",
+img:"images/lykanhypersport.jpeg"
+},
+
+{
+name:"W Motors Fenyr SuperSport",
+year:"2025",
+hp:800,
+tq:980,
+zero:"2.7",
+quarter:"10.7",
+category:"Hypercar",
+brand:"W Motors",
+country:"UAE",
+img:"images/fenyrsupersport.jpeg"
+},
+
+{
+name:"Lancia Stratos",
+year:"1974",
+hp:190,
+tq:226,
+zero:"6.6",
+quarter:"14.8",
+category:"Coupe",
+brand:"Lancia",
+country:"Italy",
+img:"images/stratos.jpeg"
+},
+
+{
+name:"Lancia Delta Integrale Evo II",
+year:"1994",
+hp:215,
+tq:314,
+zero:"5.7",
+quarter:"14.2",
+category:"Hatchback",
+brand:"Lancia",
+country:"Italy",
+img:"images/deltaintegraleevo2.jpeg"
+},
+
+
+
+{
+name:"Lancia Gamma",
+year:"2026",
+hp:375,
+tq:345,
+zero:"5.6",
+quarter:"14.0",
+category:"SUV",
+brand:"Lancia",
+country:"Italy",
+img:"images/gamma.jpeg"
+},
+
+{
+name:"Lancia Ypsilon",
+year:"2026",
+hp:156,
+tq:260,
+zero:"8.0",
+quarter:"16.1",
+category:"Hatchback",
+brand:"Lancia",
+country:"Italy",
+img:"images/ypsilon.jpeg"
+},
+
+{
+name:"Lancia Ypsilon HF",
+year:"2026",
+hp:280,
+tq:345,
+zero:"5.6",
+quarter:"14.0",
+category:"Hatchback",
+brand:"Lancia",
+country:"Italy",
+img:"images/ypsilonhf.jpeg"
+},
+
+{
+name:"SSC Ultimate Aero",
+year:"2007",
+hp:1287,
+tq:1508,
+zero:"2.7",
+quarter:"9.9",
+topspeed:256,
+category:"Hypercar",
+img:"images/ultimateaero.jpeg"
+},
+
+{
+name:"SSC Tuatara",
+year:"2020",
+hp:1750,
+tq:1735,
+zero:"2.5",
+quarter:"9.5",
+topspeed:282,
+category:"Hypercar",
+img:"images/tuatara.jpeg"
+},
+
+{
+name:"SSC Tuatara Striker",
+year:"2021",
+hp:1750,
+tq:1735,
+zero:"2.6",
+quarter:"9.7",
+topspeed:null,
+category:"Hypercar",
+img:"images/tuatarastriker.jpeg"
+},
+
+{
+name:"SSC Tuatara Aggressor",
+year:"2021",
+hp:2200,
+tq:1735,
+zero:"2.6",
+quarter:"9.7",
+topspeed:null,
+category:"Hypercar",
+img:"images/tuataraaggressor.jpeg"
+},
+
+{
+name:"Apollo Arrow",
+year:"2016",
+hp:1000,
+tq:1000,
+zero:"2.9",
+quarter:"10.2",
+category:"Hypercar",
+img:"images/arrow.jpeg"
+},
+
+{
+name:"Apollo IE",
+year:"2019",
+hp:780,
+tq:760,
+zero:"2.7",
+quarter:"9.95",
+category:"Hypercar",
+img:"images/ie.jpeg"
+},
+
+{
+name:"Apollo Project EVO",
+year:"2021",
+hp:750,
+tq:900,
+zero:"2.5",
+quarter:"9.9",
+category:"Hypercar",
+img:"images/projectevo.jpeg"
+},
+
+{
+name:"Apollo Speed",
+year:"2009",
+hp:850,
+tq:900,
+zero:"2.3",
+quarter:"10.2",
+category:"Hypercar",
+img:"images/apollosspeed.jpeg"
+},
+
+{
+name:"Apollo Enraged",
+year:"2012",
+hp:800,
+tq:800,
+zero:"2.5",
+quarter:"10.0",
+category:"Hypercar",
+img:"images/enraged.jpeg"
+},
+
+{
+name:"Apollo R",
+year:"2012",
+hp:850,
+tq:1000,
+zero:"2.0",
+quarter:"9.4",
+category:"Race Cars / Track Cars",
+img:"images/r.jpeg"
+},
+
+{
+name:"Kia K4 GT-Line",
+year:"2025",
+hp:190,
+tq:264,
+zero:"7.1",
+quarter:"15.3",
+category:"Sedan",
+brand:"Kia",
+country:"South Korea",
+img:"images/k4.jpeg"
+},
+
+{
+name:"Kia K5 GT",
+year:"2025",
+hp:290,
+tq:311,
+zero:"5.2",
+quarter:"13.7",
+category:"Sedan",
+brand:"Kia",
+country:"South Korea",
+img:"images/k5gt.jpeg"
+},
+
+{
+name:"Kia Seltos X-Line",
+year:"2025",
+hp:195,
+tq:195,
+zero:"7.3",
+quarter:"15.5",
+category:"SUV",
+brand:"Kia",
+country:"South Korea",
+img:"images/seltos.jpeg"
+},
+
+{
+name:"Kia Sportage X-Pro",
+year:"2025",
+hp:281,
+tq:311,
+zero:"6.7",
+quarter:"14.9",
+category:"SUV",
+brand:"Kia",
+country:"South Korea",
+img:"images/sportage.jpeg"
+},
+
+{
+name:"Kia Sorento X-Pro",
+year:"2025",
+hp:281,
+tq:311,
+zero:"6.5",
+quarter:"14.8",
+category:"SUV",
+brand:"Kia",
+country:"South Korea",
+img:"images/sorento.jpeg"
+},
+
+{
+name:"Kia Telluride SX Prestige X-Pro",
+year:"2025",
+hp:291,
+tq:262,
+zero:"7.0",
+quarter:"15.1",
+category:"SUV",
+brand:"Kia",
+country:"South Korea",
+img:"images/telluride.jpeg"
+},
+
+{
+name:"Kia Soul GT-Line Turbo",
+year:"2021",
+hp:201,
+tq:195,
+zero:"6.4",
+quarter:"14.8",
+category:"Hatchback",
+brand:"Kia",
+country:"South Korea",
+img:"images/soul.jpeg"
+},
+
+{
+name:"Kia Carnival Hybrid",
+year:"2025",
+hp:242,
+tq:271,
+zero:"7.7",
+quarter:"15.7",
+category:"SUV",
+brand:"Kia",
+country:"South Korea",
+img:"images/carnival.jpeg"
+},
+
+{
+name:"Kia Niro EV",
+year:"2025",
+hp:201,
+tq:188,
+zero:"6.6",
+quarter:"15.0",
+category:"SUV",
+brand:"Kia",
+country:"South Korea",
+img:"images/niroev.jpeg"
+},
+
+{
+name:"Kia EV6 GT",
+year:"2025",
+hp:641,
+tq:568,
+zero:"3.2",
+quarter:"11.4",
+category:"SUV",
+brand:"Kia",
+country:"South Korea",
+img:"images/ev6gt.jpeg"
+},
+
+{
+name:"Kia EV9 GT",
+year:"2026",
+hp:501,
+tq:545,
+zero:"4.3",
+quarter:"12.8",
+category:"SUV",
+brand:"Kia",
+country:"South Korea",
+img:"images/ev9gt.jpeg"
+},
+
+{
+name:"Genesis G70 3.3T Sport Prestige",
+year:"2025",
+hp:365,
+tq:376,
+zero:"4.5",
+quarter:"12.9",
+category:"Sedan",
+brand:"Genesis",
+country:"South Korea",
+img:"images/g70.jpeg"
+},
+
+{
+name:"Genesis G80 3.5T Sport Prestige",
+year:"2025",
+hp:375,
+tq:391,
+zero:"4.9",
+quarter:"13.3",
+category:"Sedan",
+brand:"Genesis",
+country:"South Korea",
+img:"images/g80.jpeg"
+},
+
+{
+name:"Genesis G90",
+year:"2025",
+hp:409,
+tq:405,
+zero:"5.0",
+quarter:"13.5",
+category:"Sedan",
+brand:"Genesis",
+country:"South Korea",
+img:"images/g90genesis.jpeg"
+},
+
+{
+name:"Genesis G90 Long Wheelbase",
+year:"2025",
+hp:409,
+tq:405,
+zero:"5.0",
+quarter:"13.5",
+category:"Sedan",
+brand:"Genesis",
+country:"South Korea",
+img:"images/g90wingback.jpeg"
+},
+
+{
+name:"Genesis GV80 Coupe 3.5T",
+year:"2025",
+hp:409,
+tq:405,
+zero:"5.2",
+quarter:"13.6",
+category:"SUV",
+brand:"Genesis",
+country:"South Korea",
+img:"images/gv80.jpeg"
+},
+
+{
+name:"Genesis GV60 Magma",
+year:"2026",
+hp:700,
+tq:700,
+zero:"3.0",
+quarter:"11.1",
+category:"SUV",
+brand:"Genesis",
+country:"South Korea",
+img:"images/gv60magma.jpeg"
+},
+
+{
+name:"Genesis Electrified GV70",
+year:"2025",
+hp:483,
+tq:516,
+zero:"3.8",
+quarter:"12.3",
+category:"SUV",
+brand:"Genesis",
+country:"South Korea",
+img:"images/gv70ev.jpeg"
+},
+
+{
+name:"Mitsubishi Lancer Evolution VI Tommi Mäkinen Edition",
+year:"2000",
+hp:276,
+tq:275,
+zero:"4.4",
+quarter:"13.0",
+category:"Sedan",
+brand:"Mitsubishi",
+country:"Japan",
+img:"images/tommimakinen.jpeg"
+},
+
+{
+name:"Mitsubishi Lancer Evolution X MR",
+year:"2008",
+hp:291,
+tq:300,
+zero:"5.0",
+quarter:"13.7",
+category:"Sedan",
+brand:"Mitsubishi",
+country:"Japan",
+img:"images/evoxmr.jpeg"
+},
+
+{
+name:"Mitsubishi Lancer Evolution IX MR",
+year:"2006",
+hp:286,
+tq:289,
+zero:"4.8",
+quarter:"13.3",
+category:"Sedan",
+brand:"Mitsubishi",
+country:"Japan",
+img:"images/ixmr.jpeg"
+},
+
+{
+name:"Mitsubishi 3000GT VR-4",
+year:"1999",
+hp:320,
+tq:315,
+zero:"5.3",
+quarter:"13.8",
+category:"Coupe",
+brand:"Mitsubishi",
+country:"Japan",
+img:"images/3000gtvr4.jpeg"
+},
+
+{
+name:"Mitsubishi Eclipse GSX",
+year:"1999",
+hp:210,
+tq:214,
+zero:"6.6",
+quarter:"14.9",
+category:"Coupe",
+brand:"Mitsubishi",
+country:"Japan",
+img:"images/gsx.jpeg"
+},
+
+{
+name:"Mitsubishi Outlander",
+year:"2025",
+hp:181,
+tq:181,
+zero:"8.5",
+quarter:"16.4",
+category:"SUV",
+brand:"Mitsubishi",
+country:"Japan",
+img:"images/outlander.jpeg"
+},
+
+{
+name:"Mitsubishi Eclipse Cross",
+year:"2025",
+hp:152,
+tq:184,
+zero:"8.8",
+quarter:"16.6",
+category:"SUV",
+brand:"Mitsubishi",
+country:"Japan",
+img:"images/eclipsecross.jpeg"
+},
+
+{
+name:"Mitsubishi Outlander Cross",
+year:"2025",
+hp:181,
+tq:181,
+zero:"8.5",
+quarter:"16.4",
+category:"SUV",
+brand:"Mitsubishi",
+country:"Japan",
+img:"images/outlandercross.jpeg"
+},
+
+{
+name:"Mitsubishi Mirage",
+year:"2024",
+hp:78,
+tq:74,
+zero:"12.0",
+quarter:"18.2",
+category:"Hatchback",
+brand:"Mitsubishi",
+country:"Japan",
+img:"images/mirage.jpeg"
+},
+
+{
+name:"Mitsubishi Mirage G4",
+year:"2024",
+hp:78,
+tq:74,
+zero:"12.3",
+quarter:"18.5",
+category:"Sedan",
+brand:"Mitsubishi",
+country:"Japan",
+img:"images/mirageg4.jpeg"
+},
+
+{
+name:"Mitsubishi Triton Athlete",
+year:"2025",
+hp:201,
+tq:470,
+zero:"10.0",
+quarter:"17.4",
+category:"Truck",
+brand:"Mitsubishi",
+country:"Japan",
+img:"images/triton.jpeg"
+},
+
+
+{
+name:"Mitsubishi Xforce",
+year:"2025",
+hp:103,
+tq:141,
+zero:"11.5",
+quarter:"17.8",
+category:"SUV",
+brand:"Mitsubishi",
+country:"Japan",
+img:"images/xforce.jpeg"
+},
+
+
+{
+name:"Mitsubishi Xpander",
+year:"2025",
+hp:103,
+tq:141,
+zero:"12.0",
+quarter:"18.1",
+category:"SUV",
+brand:"Mitsubishi",
+country:"Japan",
+img:"images/xpander.jpeg"
+},
+
+{
+name:"Infiniti G35 Coupe",
+year:"2007",
+hp:306,
+tq:268,
+zero:"5.3",
+quarter:"13.8",
+category:"Coupe",
+brand:"Infiniti",
+country:"Japan",
+img:"images/g35coupe.jpeg"
+},
+
+{
+name:"Infiniti G37 IPL Coupe",
+year:"2013",
+hp:348,
+tq:276,
+zero:"5.1",
+quarter:"13.7",
+category:"Coupe",
+brand:"Infiniti",
+country:"Japan",
+img:"images/g37coupeipl.jpeg"
+},
+
+{
+name:"Infiniti Q50 Red Sport 400",
+year:"2024",
+hp:400,
+tq:350,
+zero:"4.5",
+quarter:"13.0",
+category:"Sedan",
+brand:"Infiniti",
+country:"Japan",
+img:"images/q50redsport400.jpeg"
+},
+
+{
+name:"Infiniti Q60 Red Sport 400",
+year:"2022",
+hp:400,
+tq:350,
+zero:"4.5",
+quarter:"13.0",
+category:"Coupe",
+brand:"Infiniti",
+country:"Japan",
+img:"images/q60redsport400.jpeg"
+},
+
+{
+name:"Infiniti FX50S",
+year:"2009",
+hp:390,
+tq:369,
+zero:"5.3",
+quarter:"13.8",
+category:"SUV",
+brand:"Infiniti",
+country:"Japan",
+img:"images/fx50s.jpeg"
+},
+
+{
+name:"Infiniti QX80",
+year:"2025",
+hp:450,
+tq:516,
+zero:"6.1",
+quarter:"14.6",
+category:"SUV",
+brand:"Infiniti",
+country:"Japan",
+img:"images/qx80.jpeg"
+},
+
+{
+name:"Infiniti QX60",
+year:"2025",
+hp:268,
+tq:286,
+zero:"7.1",
+quarter:"15.5",
+category:"SUV",
+brand:"Infiniti",
+country:"Japan",
+img:"images/qx60.jpeg"
+},
+
+{
+name:"Infiniti QX55",
+year:"2025",
+hp:268,
+tq:288,
+zero:"6.5",
+quarter:"15.1",
+category:"SUV",
+brand:"Infiniti",
+country:"Japan",
+img:"images/qx55.jpeg"
+},
+
+{
+name:"Nissan Z Nismo",
+year:"2024",
+hp:420,
+tq:384,
+zero:"4.0",
+quarter:"12.3",
+category:"Coupe",
+brand:"Nissan",
+country:"Japan",
+img:"images/znismo.jpeg"
+},
+
+{
+name:"Nissan GT-R R35",
+year:"2024",
+hp:565,
+tq:467,
+zero:"2.9",
+quarter:"11.0",
+category:"Coupe",
+brand:"Nissan",
+country:"Japan",
+img:"images/r35gtr.jpeg"
+},
+
+{
+name:"Nissan GT-R Nismo",
+year:"2024",
+hp:600,
+tq:481,
+zero:"2.5",
+quarter:"10.7",
+category:"Coupe",
+brand:"Nissan",
+country:"Japan",
+img:"images/r35nismo.jpeg"
+},
+
+{
+name:"Nissan Skyline GT-R R34",
+year:"2002",
+hp:276,
+tq:293,
+zero:"4.9",
+quarter:"13.4",
+category:"Coupe",
+brand:"Nissan",
+country:"Japan",
+img:"images/r34skylinegtr.jpeg"
+},
+
+{
+name:"Nissan Skyline GT-R R33",
+year:"1997",
+hp:276,
+tq:271,
+zero:"5.0",
+quarter:"13.7",
+category:"Coupe",
+brand:"Nissan",
+country:"Japan",
+img:"images/r33gtr.jpeg"
+},
+
+{
+name:"Nissan Skyline GT-R R32",
+year:"1994",
+hp:276,
+tq:260,
+zero:"5.1",
+quarter:"13.6",
+category:"Coupe",
+brand:"Nissan",
+country:"Japan",
+img:"images/r32gtr.jpeg"
+},
+
+{
+name:"Nissan Skyline GTS-R R31",
+year:"1987",
+hp:207,
+tq:181,
+zero:"7.1",
+quarter:"15.2",
+category:"Coupe",
+brand:"Nissan",
+country:"Japan",
+img:"images/r31gtsr.jpeg"
+},
+
+{
+name:"Nissan Skyline R30 RS-X",
+year:"1983",
+hp:190,
+tq:177,
+zero:"7.5",
+quarter:"15.5",
+category:"Coupe",
+brand:"Nissan",
+country:"Japan",
+img:"images/r30skyline.jpeg"
+},
+
+{
+name:"Nissan Skyline GT-R 2000",
+year:"1969",
+hp:160,
+tq:177,
+zero:"8.4",
+quarter:"16.2",
+category:"Coupe",
+brand:"Nissan",
+country:"Japan",
+img:"images/1969skylinegtr.jpeg"
+},
+
+{
+name:"Nissan 350Z Nismo",
+year:"2007",
+hp:306,
+tq:268,
+zero:"5.3",
+quarter:"13.7",
+category:"Coupe",
+brand:"Nissan",
+country:"Japan",
+img:"images/350znismo.jpeg"
+},
+
+{
+name:"Nissan 370Z Nismo",
+year:"2015",
+hp:350,
+tq:276,
+zero:"4.8",
+quarter:"13.2",
+category:"Coupe",
+brand:"Nissan",
+country:"Japan",
+img:"images/370znismo.jpeg"
+},
+
+{
+name:"Nissan Rogue",
+year:"2025",
+hp:201,
+tq:225,
+zero:"8.2",
+quarter:"16.1",
+category:"SUV",
+brand:"Nissan",
+country:"Japan",
+img:"images/rogue.jpeg"
+},
+
+{
+name:"Nissan Murano",
+year:"2025",
+hp:241,
+tq:260,
+zero:"7.5",
+quarter:"15.7",
+category:"SUV",
+brand:"Nissan",
+country:"Japan",
+img:"images/murano.jpeg"
+},
+
+{
+name:"Nissan Kicks",
+year:"2025",
+hp:139,
+tq:162,
+zero:"9.7",
+quarter:"17.1",
+category:"SUV",
+brand:"Nissan",
+country:"Japan",
+img:"images/kicks.jpeg"
+},
+
+{
+name:"Nissan Pathfinder",
+year:"2025",
+hp:284,
+tq:259,
+zero:"6.6",
+quarter:"15.0",
+category:"SUV",
+brand:"Nissan",
+country:"Japan",
+img:"images/pathfinder.jpeg"
+},
+
+{
+name:"Nissan Titan",
+year:"2024",
+hp:400,
+tq:413,
+zero:"6.1",
+quarter:"14.6",
+category:"Truck",
+brand:"Nissan",
+country:"Japan",
+img:"images/titan.jpeg"
+},
+
+{
+name:"Nissan Armada NISMO",
+year:"2025",
+hp:460,
+tq:516,
+zero:"5.8",
+quarter:"13.9",
+category:"SUV",
+brand:"Nissan",
+country:"Japan",
+img:"images/armadanismo.jpeg"
+},
+
+{
+name:"Nissan Ariya Nismo",
+year:"2024",
+hp:429,
+tq:442,
+zero:"4.8",
+quarter:"13.5",
+category:"SUV",
+brand:"Nissan",
+country:"Japan",
+img:"images/ariyanismo.jpeg"
+},
+
+{
+name:"Nissan Leaf",
+year:"2025",
+hp:214,
+tq:250,
+zero:"7.4",
+quarter:"15.7",
+category:"Hatchback",
+brand:"Nissan",
+country:"Japan",
+img:"images/leaf.jpeg"
+},
+
+{
+name:"Nissan Versa",
+year:"2025",
+hp:122,
+tq:114,
+zero:"9.9",
+quarter:"17.5",
+category:"Sedan",
+brand:"Nissan",
+country:"Japan",
+img:"images/versa.jpeg"
+},
+
+{
+name:"Nissan Altima SR VC-Turbo",
+year:"2024",
+hp:248,
+tq:273,
+zero:"5.9",
+quarter:"14.4",
+category:"Sedan",
+brand:"Nissan",
+country:"Japan",
+img:"images/altima.jpeg"
+},
+
+{
+name:"Nissan Frontier",
+year:"2025",
+hp:310,
+tq:281,
+zero:"6.7",
+quarter:"15.0",
+category:"Truck",
+brand:"Nissan",
+country:"Japan",
+img:"images/frontier.jpeg"
+},
+
+{
+name:"Hennessey Blackbird",
+year:"2026",
+hp:850,
+tq:550,
+zero:"2.5",
+quarter:"10.5",
+category:"Hypercar",
+brand:"Hennessey",
+country:"United States",
+img:"images/blackbird.jpeg"
+},
+
+{
+name:"Dodge Charger Sixpack Super Bee",
+year:"2027",
+hp:600,
+tq:531,
+zero:"3.4",
+quarter:"11.8",
+category:"Coupe",
+brand:"Dodge",
+country:"United States",
+img:"images/superbee.jpeg"
+},
+
+{
+name:"Dodge Charger Daytona",
+year:"2026",
+hp:496,
+tq:404,
+zero:"4.1",
+quarter:"12.4",
+category:"Coupe",
+brand:"Dodge",
+country:"United States",
+img:"images/chargerev.jpeg"
+},
+
+{
+name:"Dodge Challenger SXT",
+year:"2023",
+hp:303,
+tq:268,
+zero:"5.3",
+quarter:"13.9",
+category:"Coupe",
+brand:"Dodge",
+country:"United States",
+img:"images/challengergt.jpeg"
+},
+
+{
+name:"Bugatti Destrier",
+year:"2026",
+hp:1578,
+tq:1600,
+zero:"2.0",
+quarter:"8.8",
+category:"Hypercar",
+brand:"Bugatti",
+country:"France",
+img:"images/destrier.jpeg"
+},
+
+{
+name:"Lexus UX 300h AWD",
+year:"2026",
+hp:196,
+tq:139,
+zero:"7.9",
+quarter:"15.9",
+category:"SUV",
+brand:"Lexus",
+country:"Japan",
+img:"images/uxhybrid.jpeg"
+},
+
+{
+name:"Lexus NX 450h+",
+year:"2026",
+hp:304,
+tq:317,
+zero:"5.9",
+quarter:"14.4",
+category:"SUV",
+brand:"Lexus",
+country:"Japan",
+img:"images/nx.jpeg"
+},
+
+{
+name:"Lexus RX 500h F Sport Performance",
+year:"2025",
+hp:366,
+tq:406,
+zero:"5.5",
+quarter:"14.0",
+category:"SUV",
+brand:"Lexus",
+country:"Japan",
+img:"images/rx.jpeg"
+},
+
+{
+name:"Lexus RZ 550e F Sport",
+year:"2026",
+hp:402,
+tq:361,
+zero:"4.1",
+quarter:"12.7",
+category:"SUV",
+brand:"Lexus",
+country:"Japan",
+img:"images/rz.jpeg"
+},
+
+{
+name:"Lexus TX 550h+ Luxury",
+year:"2026",
+hp:404,
+tq:406,
+zero:"5.2",
+quarter:"13.8",
+category:"SUV",
+brand:"Lexus",
+country:"Japan",
+img:"images/tx.jpeg"
+},
+
+{
+name:"Lexus GX 550 Overtrail+",
+year:"2025",
+hp:349,
+tq:479,
+zero:"6.2",
+quarter:"14.7",
+category:"SUV",
+brand:"Lexus",
+country:"Japan",
+img:"images/gx.jpeg"
+},
+
+{
+name:"Lexus LX 600",
+year:"2025",
+hp:409,
+tq:479,
+zero:"6.0",
+quarter:"14.5",
+category:"SUV",
+brand:"Lexus",
+country:"Japan",
+img:"images/lx.jpeg"
+},
+
+{
+name:"Lexus IS F",
+year:"2008",
+hp:416,
+tq:371,
+zero:"4.2",
+quarter:"12.7",
+category:"Sedan",
+brand:"Lexus",
+country:"Japan",
+img:"images/isf.jpeg"
+},
+
+{
+name:"Lexus IS 500 F Sport Performance",
+year:"2022",
+hp:472,
+tq:395,
+zero:"4.3",
+quarter:"12.7",
+category:"Sedan",
+brand:"Lexus",
+country:"Japan",
+img:"images/is500f.jpeg"
+},
+
+{
+name:"Lexus ES 350",
+year:"2025",
+hp:302,
+tq:267,
+zero:"6.1",
+quarter:"14.5",
+category:"Sedan",
+brand:"Lexus",
+country:"Japan",
+img:"images/es.jpeg"
+},
+
+{
+name:"Lexus LS 500",
+year:"2025",
+hp:416,
+tq:442,
+zero:"4.6",
+quarter:"13.1",
+category:"Sedan",
+brand:"Lexus",
+country:"Japan",
+img:"images/ls500.jpeg"
+},
+
+{
+name:"Lexus RC F Fuji Speedway Edition",
+year:"2021",
+hp:472,
+tq:395,
+zero:"4.0",
+quarter:"12.4",
+category:"Coupe",
+brand:"Lexus",
+country:"Japan",
+img:"images/rcf.jpeg"
+},
+
+{
+name:"Lexus LC 500",
+year:"2025",
+hp:471,
+tq:398,
+zero:"4.6",
+quarter:"13.1",
+category:"Coupe",
+brand:"Lexus",
+country:"Japan",
+img:"images/lc500.jpeg"
+},
+
+{
+name:"Lexus LFA",
+year:"2012",
+hp:552,
+tq:354,
+zero:"3.6",
+quarter:"11.6",
+category:"Supercar",
+brand:"Lexus",
+country:"Japan",
+img:"images/lfa.jpeg"
+},
+
+{
+name:"Lexus GS F",
+year:"2016",
+hp:472,
+tq:395,
+zero:"4.5",
+quarter:"12.9",
+category:"Sedan",
+brand:"Lexus",
+country:"Japan",
+img:"images/gsf.jpeg"
+},
+
+{
+name:"Lexus LFA Nürburgring Edition",
+year:"2012",
+hp:563,
+tq:354,
+zero:"3.6",
+quarter:"11.6",
+category:"Supercar",
+brand:"Lexus",
+country:"Japan",
+img:"images/lfanurburgringedition.jpeg"
+},
+
+{
+name:"Lotus Emira 420 Sport",
+year:"2027",
+hp:421,
+tq:369,
+zero:"3.7",
+quarter:"11.8",
+category:"Coupe",
+brand:"Lotus",
+country:"United Kingdom",
+img:"images/emira.jpeg"
+},
+
+{
+name:"Lotus Eletre R",
+year:"2025",
+hp:905,
+tq:985,
+zero:"2.7",
+quarter:"10.77",
+category:"SUV",
+brand:"Lotus",
+country:"United Kingdom",
+img:"images/eletrer.jpeg"
+},
+
+{
+name:"Lotus Emeya R",
+year:"2025",
+hp:905,
+tq:985,
+zero:"2.6",
+quarter:"10.5",
+category:"Sedan",
+brand:"Lotus",
+country:"United Kingdom",
+img:"images/emeya.jpeg"
+},
+
+{
+name:"Lotus Evija",
+year:"2026",
+hp:2012,
+tq:1257,
+zero:"2.5",
+quarter:"9.5",
+category:"Hypercar",
+brand:"Lotus",
+country:"United Kingdom",
+img:"images/evija.jpeg"
+},
+
+{
+name:"Lotus Elise Cup 250",
+year:"2021",
+hp:243,
+tq:181,
+zero:"3.8",
+quarter:"12.7",
+category:"Coupe",
+brand:"Lotus",
+country:"United Kingdom",
+img:"images/elisecup250.jpeg"
+},
+
+{
+name:"Lotus Exige Cup 430 Final Edition",
+year:"2021",
+hp:430,
+tq:324,
+zero:"3.2",
+quarter:"11.5",
+category:"Coupe",
+brand:"Lotus",
+country:"United Kingdom",
+img:"images/exigecup430.jpeg"
+},
+
+{
+name:"Lotus Evora GT430",
+year:"2018",
+hp:430,
+tq:325,
+zero:"3.6",
+quarter:"11.9",
+category:"Coupe",
+brand:"Lotus",
+country:"United Kingdom",
+img:"images/evroagt430.jpeg"
+},
+
+{
+name:"Lotus Esprit V8",
+year:"1999",
+hp:350,
+tq:295,
+zero:"4.1",
+quarter:"12.7",
+category:"Coupe",
+brand:"Lotus",
+country:"United Kingdom",
+img:"images/esprit.jpeg"
+},
+
+{
+name:"Lotus Evija X",
+year:"2023",
+hp:2012,
+tq:1257,
+zero:"2.0",
+quarter:"8.58",
+category:"Race Cars / Track Cars",
+brand:"Lotus",
+country:"United Kingdom",
+img:"images/evijax.jpeg"
+},
+]
+
+let guessGameCars = [];
+
+let currentGuessRound = 0;
+
+let guessScore = 0;
+
+let highestGuessScore = 0;
+
+const topSpeedLeaderboard=[
+
+{
+name:"Koenigsegg Jesko Absolut",
+topspeed:310,
+img:"images/absolut.jpeg"
+},
+
+{
+name:"BYD Yangwang U9 Extreme",
+topspeed:308.4,
+img:"images/yangwangu9extreme.jpeg"
+},
+
+{
+name:"Bugatti Chiron Super Sport 300+",
+topspeed:304,
+img:"images/chironss.jpeg"
+},
+
+{
+name:"SSC Tuatara",
+topspeed:282,
+img:"images/tuatara.jpeg"
+},
+
+{
+name:"Bugatti Mistral",
+topspeed:282,
+img:"images/mistral.jpeg"
+},
+
+{
+name:"Koenigsegg Agera RS",
+topspeed:277,
+img:"images/agerars.jpeg"
+},
+
+{
+name:"Bugatti Tourbillon",
+topspeed:276,
+img:"images/tourbillon.jpeg"
+},
+
+{
+name:"Hennessey Venom F5",
+topspeed:272,
+img:"images/venomf5.jpeg"
+},
+
+{
+name:"Rimac Nevera R",
+topspeed:258,
+img:"images/neverar.jpeg"
+},
+
+{
+name:"Bugatti Veyron Super Sport",
+topspeed:268,
+img:"images/veyronss.jpeg"
+}
+
+];
+
+const featuredInfo = {
+
+
+"Ferrari SF90 Stradale":{
+
+description:
+"Ferrari's first production plug-in hybrid supercar combines a twin-turbo V8 with three electric motors, creating nearly 1000 horsepower while keeping Ferrari's racing DNA.",
+
+facts:[
+"Ferrari's first AWD production car",
+"Three electric motors + twin turbo V8",
+"Active aerodynamic system",
+"Top speed over 210 mph"
+]
+
+},
+
+
+"Lamborghini Revuelto":{
+
+description:
+"Lamborghini's first V12 plug-in hybrid combines a naturally aspirated V12 with electric power while preserving the emotional character of Lamborghini's flagship cars.",
+
+facts:[
+"6.5L naturally aspirated V12",
+"First Lamborghini V12 hybrid",
+"1015 horsepower combined",
+"Carbon fiber monocoque chassis"
+]
+
+},
+
+
+"Rimac Nevera":{
+
+description:
+"The Nevera is one of the fastest electric hypercars ever created, delivering unbelievable acceleration through four independent electric motors.",
+
+facts:[
+"Four electric motors",
+"Over 1900 horsepower",
+"0-60 mph under 2 seconds",
+"Built in Croatia"
+]
+
+},
+
+
+"Bugatti Tourbillon":{
+
+description:
+"Bugatti's next-generation hypercar combines a naturally aspirated V16 engine with electric motors to create one of the most advanced powertrains ever built.",
+
+facts:[
+"Naturally aspirated V16 engine",
+"Hybrid powertrain",
+"Designed by Bugatti",
+"Extreme luxury hypercar"
+]
+
+}
+
+
+};
+function assignCountries(){
+
+cars.forEach(car=>{
+
+let name = car.name;
+
+
+if(
+["BMW","Mercedes","Audi","Porsche","Opel","Smart","Apollo"].some(b=>name.includes(b))
+)
+car.country="Germany";
+
+
+else if(
+["Bugatti","Alpine","Peugeot","Renault","Citroen","Venturi"].some(b=>name.includes(b))
+)
+car.country="France";
+
+
+else if(
+["Ferrari","Lamborghini","Pagani","Alfa Romeo","Maserati","Lancia","Fiat","De Tomaso","Italdesign"].some(b=>name.includes(b))
+)
+car.country="Italy";
+
+
+else if(
+[
+"Ford",
+"Chevrolet",
+"Chevy",
+"Dodge",
+"Tesla",
+"Cadillac",
+"Jeep",
+"RAM",
+"GMC",
+"Lincoln",
+"Buick",
+"Chrysler",
+"Lucid",
+"Rivian",
+"Fisker",
+"SSC",
+"Czinger",
+"Panoz",
+"Vector",
+"Hennessey",
+"Saleen",
+"Rezvani"
+].some(b=>name.includes(b))
+)
+car.country="USA";
+
+
+else if(
+[
+"Toyota",
+"Honda",
+"Mazda",
+"Nissan",
+"Acura",
+"Lexus",
+"Infiniti",
+"Subaru",
+"Mitsubishi",
+"Suzuki",
+"Isuzu"
+].some(b=>name.includes(b))
+)
+car.country="Japan";
+
+
+else if(
+[
+"Hyundai",
+"Kia",
+"Genesis"
+].some(b=>name.includes(b))
+)
+car.country="South Korea";
+
+
+else if(
+[
+"McLaren",
+"Aston Martin",
+"Bentley",
+"Rolls-Royce",
+"Lotus",
+"Jaguar",
+"Land Rover",
+"Mini",
+"TVR",
+"MG"
+].some(b=>name.includes(b))
+)
+car.country="UK";
+
+
+else if(
+[
+"Koenigsegg",
+"Volvo",
+"Polestar",
+"Saab"
+].some(b=>name.includes(b))
+)
+car.country="Sweden";
+
+
+else if(
+[
+"Rimac"
+].some(b=>name.includes(b))
+)
+car.country="Croatia";
+
+
+else if(
+[
+"W Motors"
+].some(b=>name.includes(b))
+)
+car.country="UAE";
+
+
+else if(
+[
+"BYD",
+"NIO",
+"XPeng",
+"Xpeng",
+"Geely",
+"Hongqi",
+"Zeekr",
+"GWM",
+"Great Wall",
+"Chery",
+"Baojun",
+"Changan",
+"Leapmotor",
+"Xiaomi"
+].some(b=>name.includes(b))
+)
+car.country="China";
+
+
+else if(
+[
+"Tata",
+"Mahindra",
+"Maruti Suzuki"
+].some(b=>name.includes(b))
+)
+car.country="India";
+
+
+else if(
+[
+"SEAT",
+"Cupra"
+].some(b=>name.includes(b))
+)
+car.country="Spain";
+
+
+else if(
+[
+"Zenvo"
+].some(b=>name.includes(b))
+)
+car.country="Denmark";
+
+
+else if(
+[
+"Praga",
+"Skoda",
+"Škoda"
+].some(b=>name.includes(b))
+)
+car.country="Czech Republic";
+
+
+else if(
+[
+"KTM"
+].some(b=>name.includes(b))
+)
+car.country="Austria";
+
+
+else if(
+[
+"Spyker",
+"Donkervoort"
+].some(b=>name.includes(b))
+)
+car.country="Netherlands";
+
+
+else if(
+[
+"Proton",
+"Perodua"
+].some(b=>name.includes(b))
+)
+car.country="Malaysia";
+
+
+else if(
+[
+"Holden",
+"HSV"
+].some(b=>name.includes(b))
+)
+car.country="Australia";
+
+
+else if(
+[
+"VinFast"
+].some(b=>name.includes(b))
+)
+car.country="Vietnam";
+
+
+else if(
+[
+"Marussia"
+].some(b=>name.includes(b))
+)
+car.country="Russia";
+
+
+else{
+car.country="Unknown";
+}
+
+
+});
+
+}
+
+
+
+assignCountries();
+
+const grid=document.querySelector(".grid");
+
+let selectedCars=[];
+
+
+function getClass(car){
+
+if(car.quarter <= 9.5 || car.hp >= 1000){
+return "X";
+}
+
+if(car.quarter <= 10.8 || car.hp >= 700){
+return "S";
+}
+
+if(car.quarter <= 12.5 || car.hp >= 400){
+return "A";
+}
+
+return "B";
+
+}
+
+function displayCars(list=cars){
+
+grid.innerHTML="";
+
+
+list.forEach(car=>{
+
+
+grid.innerHTML += `
+
+
+<div class="car" data-name="${car.name}" onclick="selectCar('${car.name}')">
+
+
+<div class="class-badge class-${getClass(car)}">
+
+${getClass(car)}
+
+</div>
+
+
+
+<img src="${car.img}"
+onerror="this.src='https://via.placeholder.com/300x160'">
+
+
+
+<div class="info">
+
+
+<div class="name">
+
+${car.name}
+
+</div>
+
+
+
+<div class="stats">
+
+
+Year: ${car.year}<br>
+
+HP: ${car.hp}<br>
+
+Torque: ${car.tq} Nm<br>
+
+0-60: ${car.zero}s<br>
+
+1/4 Mile: ${car.quarter}s
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+`;
+
+});
+
+}
+
+
+
+displayCars();
+
+const hoverSound = new Audio("sounds/hover.mp3");
+hoverSound.volume = 0.7;
+
+document.addEventListener("mouseover", function(e){
+
+    if(e.target.closest(".car")){
+
+        hoverSound.currentTime = 0;
+        hoverSound.play();
+
+    }
+
+});
+
+
+
+function selectCar(name){
+
+let cards=document.querySelectorAll(".car");
+
+let card=null;
+
+
+cards.forEach(c=>{
+
+if(c.dataset.name===name){
+
+card=c;
+
+}
+
+});
+
+
+if(selectedCars.includes(name)){
+
+
+selectedCars =
+selectedCars.filter(x=>x!==name);
+
+
+if(card){
+
+card.classList.remove("selected");
+
+}
+
+
+}
+
+else{
+
+
+if(selectedCars.length>=4){
+
+alert("Select only 4 cars");
+
+return;
+
+}
+
+
+
+selectedCars.push(name);
+
+
+if(card){
+
+card.classList.add("selected");
+
+}
+
+
+}
+
+
+document.getElementById("selectedCount").innerHTML =
+
+"Selected Cars: " + selectedCars.length + " / 4";
+
+
+}
+
+
+function filterCars(category){
+
+if(category==="All"){
+
+displayCars(cars);
+
+return;
+
+}
+
+
+let filtered=cars.filter(car=>
+
+car.category===category
+
+);
+
+
+displayCars(filtered);
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function searchCars(){
+
+
+let text=document
+.getElementById("search")
+.value
+.toLowerCase();
+
+
+
+let filtered=cars.filter(car=>
+
+
+car.name.toLowerCase().includes(text)
+
+
+);
+
+
+
+displayCars(filtered);
+
+
+}
+
+function startVS(){
+
+
+if(selectedCars.length < 2 || selectedCars.length > 4){
+
+alert("Select 2-4 cars");
+
+return;
+
+}
+
+
+
+let car1=cars.find(c=>c.name===selectedCars[0]);
+let car2=cars.find(c=>c.name===selectedCars[1]);
+let car3=cars.find(c=>c.name===selectedCars[2]);
+let car4=cars.find(c=>c.name===selectedCars[3]);
+
+
+
+let panel=document.getElementById("vsPanel");
+
+
+panel.style.display="block";
+panel.classList.add("show");
+
+function closeVS(){
+
+let panel=document.getElementById("vsPanel");
+
+panel.style.display="none";
+
+panel.classList.remove("show");
+
+}
+
+panel.innerHTML=`
+
+<button class="closeVS" onclick="closeVS()">×</button>
+
+<button class="closeVS" onclick="closeVS()">
+✖ CLOSE
+</button>
+
+<div class="vs-container">
+
+
+<div class="vs-card">
+
+<h2>${car1.name}</h2>
+
+<img src="${car1.img}">
+
+<p>${car1.hp} HP</p>
+
+<p>0-60: ${car1.zero}s</p>
+
+<p>1/4 Mile: ${car1.quarter}s</p>
+
+</div>
+
+
+
+
+<div class="vs-card">
+
+<h2>${car2.name}</h2>
+
+<img src="${car2.img}">
+
+<p>${car2.hp} HP</p>
+
+<p>0-60: ${car2.zero}s</p>
+
+<p>1/4 Mile: ${car2.quarter}s</p>
+
+</div>
+
+
+
+${car3 ? `
+
+<div class="vs-card">
+
+<h2>${car3.name}</h2>
+
+<img src="${car3.img}">
+
+<p>${car3.hp} HP</p>
+
+<p>0-60: ${car3.zero}s</p>
+
+<p>1/4 Mile: ${car3.quarter}s</p>
+
+</div>
+
+`:""}
+
+
+
+${car4 ? `
+
+<div class="vs-card">
+
+<h2>${car4.name}</h2>
+
+<img src="${car4.img}">
+
+<p>${car4.hp} HP</p>
+
+<p>0-60: ${car4.zero}s</p>
+
+<p>1/4 Mile: ${car4.quarter}s</p>
+
+</div>
+
+`:""}
+
+
+
+</div>
+
+
+
+<div class="vs-actions">
+
+<button class="race-button" onclick="startRace()">
+
+START DRAG RACE 🏁
+
+</button>
+
+<button class="cancel-button" onclick="closeVS()">
+
+CANCEL
+
+</button>
+
+</div>
+
+`;
+
+
+}
+
+
+function closeVS(){
+
+let panel=document.getElementById("vsPanel");
+
+panel.style.display="none";
+
+panel.innerHTML="";
+
+}
+
+function startRace(){
+
+// Reset previous race state
+document.getElementById("raceTrack").innerHTML = "";
+
+let oldCountdown = document.getElementById("countdown");
+
+oldCountdown.className = "";
+oldCountdown.style = "";
+oldCountdown.innerHTML = "3";
+
+document.getElementById("light1").classList.remove("light-on");
+document.getElementById("light2").classList.remove("light-on");
+document.getElementById("light3").classList.remove("light-on");
+
+
+let raceCars = selectedCars.map(name =>
+cars.find(c=>c.name===name)
+);
+
+
+
+let panel=document.getElementById("vsPanel");
+
+panel.style.display="none";
+
+
+let overlay=document.getElementById("raceOverlay");
+
+overlay.style.display="block";
+
+let countdownBox = document.getElementById("countdown");
+
+countdownBox.innerHTML = "3";
+
+countdownBox.style.animation = "none";
+countdownBox.style.background = "none";
+countdownBox.style.border = "none";
+countdownBox.style.padding = "0";
+
+let raceHTML="";
+
+raceCars.forEach((car,index)=>{
+    raceHTML += `
+    <div class="raceLane">
+        <div class="startLine"></div>
+        <div id="smoke${index}" class="smoke"></div>
+        <img id="race${index}" class="raceCar" src="${car.img}">
+        <div class="finishLine"></div>
+    </div>
+    `;
+});
+
+document.getElementById("raceTrack").innerHTML = raceHTML;
+
+// Show the cars BEFORE the countdown starts
+
+
+
+
+let countdown=3;
+
+
+
+let timer=setInterval(()=>{
+
+
+document.getElementById("countdown").innerHTML=countdown;
+
+
+
+if(countdown===3){
+
+document.getElementById("light1").classList.add("light-on");
+
+}
+
+
+if(countdown===2){
+
+document.getElementById("light2").classList.add("light-on");
+
+}
+
+
+if(countdown===1){
+
+document.getElementById("light3").classList.add("light-on");
+
+}
+
+
+countdown--;
+
+
+
+if(countdown<0){
+
+
+clearInterval(timer);
+
+
+
+document.getElementById("countdown").innerHTML="GO!";
+
+
+
+setTimeout(()=>{
+
+
+runRace(raceCars);
+
+
+},500);
+
+
+
+}
+
+
+
+},1000);
+
+
+
+}
+
+
+
+function runRace(raceCars){
+
+  
+
+
+
+
+
+
+let positions = raceCars.map(()=>0);
+
+let startTime = Date.now();
+
+
+
+
+let winner="";
+
+
+window.raceInterval=setInterval(()=>{
+
+
+
+
+
+
+let elapsed = (Date.now() - startTime) / 1000;
+
+
+raceCars.forEach((car,index)=>{
+
+
+let speed = 90 / (parseFloat(car.quarter)*20);
+
+
+positions[index]+=speed;
+
+
+
+let img=document.getElementById("race"+index);
+
+if(img){
+
+img.style.animation="none";
+
+img.style.left = positions[index]+"%";
+
+img.style.filter =
+"drop-shadow(0 12px 18px rgba(0,0,0,.8))";
+
+}
+
+
+});
+
+
+
+raceCars.forEach((car,index)=>{
+
+let smoke=document.getElementById("smoke"+index);
+
+if(positions[index]<12){
+
+smoke.style.opacity="1";
+
+smoke.style.transform=
+"scale("+(1+positions[index]/10)+")";
+
+}
+
+else{
+
+smoke.style.opacity="0";
+
+}
+
+});
+
+
+
+
+
+let finished=false;
+
+raceCars.forEach((car,index)=>{
+
+if(positions[index]>=90){
+
+finished=true;
+
+}
+
+});
+
+
+if(finished){
+
+
+clearInterval(window.raceInterval);
+
+document.getElementById("raceTrack").style.animation =
+"flash .5s";
+
+let winnerIndex = positions.indexOf(
+Math.max(...positions)
+);
+
+let img=document.getElementById("race"+winnerIndex);
+
+img.style.transform="scale(1.15)";
+img.style.filter="drop-shadow(0 0 35px #00ff99)";
+
+
+let winner = raceCars[winnerIndex];
+
+
+let result = 
+`🏆 Winner: ${winner.name}<br>
+1/4 Mile: ${winner.quarter}s`;
+
+
+let countdown = document.getElementById("countdown");
+
+countdown.style.position = "fixed";
+countdown.style.top = "50%";
+countdown.style.left = "50%";
+countdown.style.transform = "translate(-50%, -50%)";
+countdown.style.zIndex = "99999";
+countdown.style.background = "rgba(0,0,0,.75)";
+countdown.style.padding = "35px 60px";
+countdown.style.borderRadius = "20px";
+countdown.style.border = "2px solid #00ff99";
+
+countdown.className="";
+countdown.style.animation="winnerPop .45s ease";
+countdown.innerHTML = `
+<div style="
+background:#0d0d0d;
+border:1px solid #333;
+border-top:3px solid #00ff99;
+border-radius:18px;
+padding:14px;
+width:240px;
+box-shadow:0 25px 60px rgba(0,0,0,.65);
+font-family:'Segoe UI',sans-serif;
+text-align:center;
+">
+
+<div style="
+font-size:12px;
+letter-spacing:4px;
+color:#888;
+text-transform:uppercase;
+margin-bottom:12px;
+">
+Race Finished
+</div>
+
+<div style="
+font-size:30px;
+font-weight:700;
+color:white;
+margin-bottom:6px;
+">
+${winner.name}
+</div>
+
+<div style="
+font-size:18px;
+color:#00ff99;
+margin-bottom:18px;
+">
+🏁 1/4 Mile: ${winner.quarter}s
+</div>
+
+<button onclick="closeRace()" style="
+width:100%;
+padding:12px;
+background:#00ff99;
+border:none;
+border-radius:10px;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+color:#111;
+transition:.25s;
+">
+Close
+</button>
+
+</div>
+`;
+
+
+}
+
+
+
+},50);
+
+
+
+}
+function closeRace(){
+
+clearInterval(window.raceInterval);
+
+  document.getElementById("vsPanel").style.display="none";
+
+let overlay=document.getElementById("raceOverlay");
+
+overlay.style.display="none";
+
+
+document.getElementById("raceTrack").innerHTML="";
+
+
+document.getElementById("countdown").innerHTML="3";
+
+let countdown = document.getElementById("countdown");
+
+countdown.style.position = "";
+countdown.style.top = "";
+countdown.style.left = "";
+countdown.style.transform = "";
+countdown.style.zIndex = "";
+countdown.style.background = "";
+countdown.style.padding = "";
+countdown.style.borderRadius = "";
+countdown.style.border = "";
+
+
+document.getElementById("light1").classList.remove("light-on");
+
+document.getElementById("light2").classList.remove("light-on");
+
+document.getElementById("light3").classList.remove("light-on");
+
+// Clear selected cars after race
+selectedCars = [];
+
+document.querySelectorAll(".car").forEach(card=>{
+    card.classList.remove("selected");
+});
+
+document.getElementById("selectedCount").innerHTML =
+"Selected Cars: 0 / 4";
+
+
+}
+
+function openBrands(){
+
+document.getElementById("brandMenu").style.display="block";
+
+}
+
+
+function closeBrands(){
+
+document.getElementById("brandMenu").style.display="none";
+
+}
+
+
+function filterBrand(brand){
+
+let filteredCars = cars.filter(car =>
+car.name.includes(brand)
+);
+
+displayCars(filteredCars);
+
+closeBrands();
+
+}
+
+
+function openCountries(){
+
+document.getElementById("countryMenu").style.display="block";
+
+}
+
+
+function closeCountries(){
+    document.getElementById("countryMenu").style.display="none";
+}
+
+function randomCar() {
+    const randomIndex = Math.floor(Math.random() * cars.length);
+    displayCars([cars[randomIndex]]);
+}
+
+
+function filterCountry(country){
+
+let filteredCars = cars.filter(car => {
+
+let name = car.name;
+
+
+if(country=="Germany")
+return ["BMW","Mercedes","Audi","Porsche","Opel","Smart","Apollo"].some(b => name.includes(b));
+
+
+if(country=="France")
+return ["Bugatti","Alpine","Peugeot","Renault","Citroen","Venturi"].some(b => name.includes(b));
+
+
+
+if(country=="Italy")
+return ["Ferrari","Lamborghini","Pagani","Alfa Romeo","Maserati","Lancia","Fiat","Detomaso","Italdesign"].some(b => name.includes(b));
+
+
+if(country=="USA")
+return ["Ford","Chevrolet","Dodge","Tesla","Cadillac","Jeep","RAM","Saleen","GMC","Lincoln","Buick","Chrysler","Lucid","Rivian","Fisker","SSC","Czinger","Panoz","Vector"].some(b => name.includes(b));
+
+
+if(country=="Japan")
+return ["Toyota","Honda","Mazda","Nissan","Acura","Maruti Suzuki","Lexus","Infiniti","Subaru","Mitsubishi","Isuzu"].some(b => name.includes(b));
+
+
+if(country=="South Korea")
+return ["Hyundai", "Kia","Genesis"].some(b => name.includes(b));
+
+
+if(country=="India")
+return ["Tata","Mahindra",].some(b => name.includes(b));
+
+
+if(country=="UK")
+return ["McLaren","Aston Martin","Bentley","Rolls-Royce","Lotus","Jaguar","Land Rover","Mini","TVR"].some(b => name.includes(b));
+
+
+if(country=="Sweden")
+return ["Koenigsegg","Volvo","Polestar","Saab"].some(b => name.includes(b));
+
+
+if(country=="Croatia")
+return ["Rimac"].some(b => name.includes(b));
+
+if(country=="Spain")
+return ["Seat","Cupra"].some(b => name.includes(b));
+
+if(country=="UAE")
+return ["W Motors"].some(b => name.includes(b));
+
+if(country=="Vietnam")
+return ["Vinfast"].some(b => name.includes(b));
+
+if(country=="China")
+return ["BYD","NIO","XPeng","Xpeng","Geely","Hongqi","Zeekr","GWM","Great Wall","Chery","Baojun","Changan","Leapmotor","Xiaomi"].some(b => name.includes(b));
+
+
+});
+
+
+displayCars(filteredCars);
+
+closeCountries();
+
+}
+
+function openLeaderboard(){
+
+let board=document.getElementById("leaderboard");
+
+board.classList.add("open");
+
+showLeaderboard("zero");
+
+}
+
+
+function closeLeaderboard(){
+
+let board=document.getElementById("leaderboard");
+
+board.classList.remove("open");
+
+}
+
+function setActiveTab(button){
+
+document.querySelectorAll(".leaderBtn").forEach(btn=>{
+btn.classList.remove("active");
+});
+
+button.classList.add("active");
+
+}
+
+
+
+function getFlag(country){
+
+let flags={
+
+"USA":"🇺🇸",
+"Germany":"🇩🇪",
+"Italy":"🇮🇹",
+"France":"🇫🇷",
+"Japan":"🇯🇵",
+"UK":"🇬🇧",
+"Sweden":"🇸🇪",
+"Croatia":"🇭🇷",
+"UAE":"🇦🇪",
+"India":"🇮🇳",
+"South Korea":"🇰🇷",
+"Spain":"🇪🇸",
+"China":"🇨🇳",
+"Denmark":"🇩🇰",
+"Czech Republic":"🇨🇿",
+"Austria":"🇦🇹",
+"Netherlands":"🇳🇱",
+"Malaysia":"🇲🇾",
+"Australia":"🇦🇺",
+"Vietnam":"🇻🇳",
+"Russia":"🇷🇺"
+
+};
+
+return flags[country] || "🌎";
+
+}
+
+
+
+function showLeaderboard(type){
+
+let sorted=[...cars];
+
+sorted.sort((a,b)=>{
+
+let A=parseFloat(a[type]) || 999;
+let B=parseFloat(b[type]) || 999;
+
+return A-B;
+
+});
+
+let html="";
+
+sorted.slice(0,10).forEach((car,index)=>{
+
+html+=`
+
+<div class="rank-card">
+
+<div class="rank-number">
+${index+1}
+</div>
+
+<img src="${car.img}">
+
+<div>
+
+<h2>
+${getFlag(car.country)} ${car.country} - ${car.name}
+</h2>
+
+<p>
+${type=="zero" ?
+"0-60: "+car.zero+"s":
+"1/4 Mile: "+car.quarter+"s"}
+</p>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+let content=document.getElementById("leaderContent");
+
+content.style.opacity="0";
+
+setTimeout(()=>{
+
+content.innerHTML=html;
+
+content.style.opacity="1";
+
+},250);
+
+}
+
+
+
+function showTopSpeedLeaderboard(){
+
+let html="";
+
+topSpeedLeaderboard.forEach((car,index)=>{
+
+html+=`
+
+<div class="rank-card">
+
+<div class="rank-number">
+${index+1}
+</div>
+
+<img src="${car.img}">
+
+<div>
+
+<h2>
+${car.name}
+</h2>
+
+<p>
+
+🚀 Top Speed:
+${car.topspeed} mph
+(${Math.round(car.topspeed*1.60934)} km/h)
+
+</p>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+let content=document.getElementById("leaderContent");
+
+content.style.opacity="0";
+
+setTimeout(()=>{
+
+content.innerHTML=html;
+
+content.style.opacity="1";
+
+},250);
+
+}
+
+function getDailyCar(){
+
+let today = new Date().toDateString();
+
+
+let savedDate = localStorage.getItem("dailyDate");
+
+let savedCar = localStorage.getItem("dailyCar");
+
+
+if(savedDate === today && savedCar){
+
+return cars.find(c => c.name === savedCar);
+
+}
+
+
+
+let history = JSON.parse(
+localStorage.getItem("featuredCars")
+) || [];
+
+
+
+let available = cars.filter(car =>
+!history.includes(car.name)
+);
+
+
+
+if(available.length === 0){
+
+history=[];
+
+available=[...cars];
+
+}
+
+
+
+let randomIndex =
+Math.floor(Math.random()*available.length);
+
+
+
+let selected = available[randomIndex];
+
+
+
+history.push(selected.name);
+
+
+
+localStorage.setItem(
+"featuredCars",
+JSON.stringify(history)
+);
+
+
+
+localStorage.setItem(
+"dailyDate",
+today
+);
+
+
+
+localStorage.setItem(
+"dailyCar",
+selected.name
+);
+
+
+
+return selected;
+
+
+}
+
+function openDailyFeature(){
+
+document.getElementById("dailyFeature").style.display="block";
+
+showDailyFeature();
+
+}
+
+function closeDailyFeature(){
+
+document.getElementById("dailyFeature").style.display="none";
+
+}
+
+function openDailyPoll(){
+
+document.getElementById("dailyPoll").style.display="block";
+
+showDailyPoll();
+
+}
+
+
+function closeDailyPoll(){
+
+document.getElementById("dailyPoll").style.display="none";
+
+}
+function openGuessGame(){
+
+document.getElementById("guessGame").style.display="block";
+
+startGuessGame();
+
+}
+
+function closeGuessGame(){
+
+document.getElementById("guessGame").style.display="none";
+
+}
+
+function startGuessGame(){
+
+guessScore = 0;
+
+currentGuessRound = 0;
+
+
+// create 50 random cars without repeats
+
+let easyCars = cars.filter(car =>
+car.category === "Sedan" ||
+car.category === "Hatchback" ||
+car.category === "Coupe"
+);
+
+
+let mediumCars = cars.filter(car =>
+car.category === "Supercar" ||
+car.category === "Coupe" ||
+car.category === "Sedan"
+);
+
+
+let hardCars = cars.filter(car =>
+car.category === "Hypercar" ||
+car.category === "Supercar" ||
+car.category === "Race Cars / Track Cars"
+);
+
+
+
+let usedCars =
+JSON.parse(
+localStorage.getItem("guessUsedCars")
+) || [];
+
+
+let availableCars =
+cars.filter(car =>
+!usedCars.includes(car.name)
+);
+
+
+
+if(availableCars.length < 50){
+
+usedCars=[];
+
+availableCars=[...cars];
+
+}
+
+
+
+guessGameCars =
+availableCars
+.sort(()=>Math.random()-0.5)
+.slice(0,50);
+
+
+
+guessGameCars.forEach(car=>{
+
+usedCars.push(car.name);
+
+});
+
+
+localStorage.setItem(
+"guessUsedCars",
+JSON.stringify(usedCars)
+);
+
+// reset display
+
+document.getElementById("guessResult")?.remove();
+
+
+// start
+
+loadGuessRound();
+
+}
+
+function getGuessOptions(correctCar){
+
+let options=[correctCar];
+
+
+let pool=cars.filter(car=>
+
+car.name !== correctCar.name &&
+
+Math.abs(car.hp - correctCar.hp) < 500
+
+);
+
+
+
+pool=pool.sort(()=>Math.random()-0.5);
+
+
+
+while(options.length < 5 && pool.length){
+
+let car = pool.pop();
+
+if(!options.includes(car)){
+
+options.push(car);
+
+}
+
+}
+
+
+
+while(options.length < 5){
+
+let random = cars[Math.floor(Math.random()*cars.length)];
+
+
+if(!options.includes(random)){
+
+options.push(random);
+
+}
+
+}
+
+
+
+return options.sort(()=>Math.random()-0.5);
+
+
+}
+
+function loadGuessRound(){
+
+let car = guessGameCars[currentGuessRound];
+
+let options = getGuessOptions(car);
+
+document.getElementById("guessContent").innerHTML = `
+
+<div class="guessProgress">
+
+ROUND ${currentGuessRound+1} / 50
+
+<br>
+
+⭐ SCORE: ${guessScore}
+
+<br><br>
+
+${
+currentGuessRound < 10
+?
+"🟢 EASY MODE"
+:
+currentGuessRound < 30
+?
+"🟡 MEDIUM MODE"
+:
+"🔴 HARD MODE"
+}
+
+<div class="progressBar">
+
+<div class="progressFill"
+style="width:${((currentGuessRound)/50)*100}%">
+</div>
+
+</div>
+
+<p>
+${Math.round((currentGuessRound/50)*100)}% COMPLETE
+</p>
+
+</div>
+
+<h1 class="guessTitle">
+
+GUESS THE CAR
+
+</h1>
+
+<p class="guessSubtitle">
+
+Can you identify this car?
+
+</p>
+
+<img
+id="guessCarImage"
+class="guessImage blurredCar"
+src="${car.img}"
+>
+
+<div class="guessStats">
+
+<div>
+
+<h2>${car.hp}</h2>
+
+<p>HP</p>
+
+</div>
+
+<div>
+
+<h2>${car.zero}s</h2>
+
+<p>0-60</p>
+
+</div>
+
+<div>
+
+<h2>${car.quarter}s</h2>
+
+<p>1/4 MILE</p>
+
+</div>
+
+</div>
+
+<div class="guessOptions">
+
+${options.map(option=>`
+
+<button
+class="guessOption"
+onclick="checkGuess('${option.name.replace(/'/g,"\\'")}')">
+
+${option.name}
+
+</button>
+
+`).join("")}
+
+</div>
+
+`;
+}
+
+function checkGuess(answer){
+
+let correctCar = guessGameCars[currentGuessRound];
+
+
+let buttons = document.querySelectorAll(".guessOption");
+
+
+buttons.forEach(button=>{
+
+button.disabled = true;
+
+});
+
+
+
+let image =
+document.getElementById("guessCarImage");
+
+if(image){
+
+image.classList.add("guessReveal");
+
+}
+
+
+
+if(answer === correctCar.name){
+
+guessScore++;
+
+
+let correctSound = new Audio("sounds/correct.mp3");
+correctSound.volume = 0.45;
+correctSound.play().catch(e => console.log(e));
+
+
+buttons.forEach(button=>{
+
+if(button.innerHTML === correctCar.name){
+
+button.style.background="#00ff99";
+
+button.style.color="black";
+
+}
+
+});
+
+
+showGuessMessage(
+"✅ CORRECT!",
+"#00ff99"
+);
+
+
+}
+
+
+else{
+
+ let wrongSound = new Audio("sounds/wrong.mp3");
+wrongSound.volume = 0.35;
+wrongSound.play().catch(e => console.log(e));
+
+
+buttons.forEach(button=>{
+
+
+if(button.innerHTML === correctCar.name){
+
+button.style.background="#00ff99";
+
+button.style.color="black";
+
+}
+
+
+if(button.innerHTML === answer){
+
+button.style.background="#ff3333";
+
+}
+
+
+});
+
+
+showGuessMessage(
+"❌ WRONG!<br>"+correctCar.name,
+"#ff3333"
+);
+
+
+}
+
+
+
+setTimeout(()=>{
+
+let popup = document.querySelector(".premiumGuessResult");
+
+if(popup){
+    popup.classList.remove("show");
+
+    setTimeout(()=>{
+        popup.remove();
+    },300);
+}
+
+
+currentGuessRound++;
+
+
+if(currentGuessRound >= 50){
+
+saveGuessScore();
+
+endGuessGame();
+
+}
+
+else{
+
+loadGuessRound();
+
+}
+
+
+},2200);
+
+}
+
+function showGuessMessage(text,color){
+
+let car = guessGameCars[currentGuessRound];
+
+let box = document.createElement("div");
+
+box.className = "premiumGuessResult";
+
+box.style.setProperty("--resultColor", color);
+
+box.innerHTML = `
+
+<div class="resultGlow"></div>
+
+<h1>${text}</h1>
+
+<h2>
+🏎️ ${car.name}
+</h2>
+
+<div class="resultStatsMini">
+
+<div>
+<strong>${car.hp}</strong>
+<span>HP</span>
+</div>
+
+<div>
+<strong>${car.zero}s</strong>
+<span>0-60</span>
+</div>
+
+<div>
+<strong>${car.quarter}s</strong>
+<span>1/4 MILE</span>
+</div>
+
+</div>
+
+`;
+
+
+document.body.appendChild(box);
+
+
+// force browser to recognize it exists first
+setTimeout(()=>{
+
+box.classList.add("show");
+
+},100);
+
+
+// keep popup longer
+setTimeout(()=>{
+
+box.classList.remove("show");
+
+
+setTimeout(()=>{
+
+box.remove();
+
+},500);
+
+
+},2500);
+
+
+}
+
+function endGuessGame(){
+
+  let scores =
+JSON.parse(
+localStorage.getItem("guessScores")
+) || [];
+
+
+scores.push(guessScore);
+
+
+localStorage.setItem(
+"guessScores",
+JSON.stringify(scores)
+);
+
+
+scores.sort((a,b)=>b-a);
+
+
+let rank =
+scores.indexOf(guessScore)+1;
+
+
+let totalPlayers =
+scores.length;
+
+let level="";
+
+let rankColor="";
+
+
+if(guessScore < 15){
+
+level="ROOKIE";
+rankColor="#cd7f32";
+
+}
+
+else if(guessScore < 25){
+
+level="BEGINNER";
+rankColor="#b87333";
+
+}
+
+else if(guessScore <=35){
+
+level="INTERMEDIATE";
+rankColor="#00aaff";
+
+}
+
+else if(guessScore <44){
+
+level="CAR GUY";
+rankColor="#00ff99";
+
+}
+
+else{
+
+level="CAR EXPERT";
+rankColor="#ffd700";
+
+}
+
+
+
+if(
+guessScore >
+Number(localStorage.getItem("highestGuessScore") || 0)
+){
+
+localStorage.setItem(
+"highestGuessScore",
+guessScore
+);
+
+}
+
+
+
+let highest =
+localStorage.getItem("highestGuessScore");
+
+
+document.getElementById("guessContent").innerHTML = `
+
+
+<h1 class="guessTitle">
+
+🏁 GAME COMPLETE
+
+</h1>
+
+
+<div class="scoreCard"
+style="
+background:${rankColor};
+">
+
+<h2>
+
+${guessScore} / 50
+
+</h2>
+
+<p>
+
+YOUR SCORE
+
+</p>
+
+</div>
+
+
+<h1>
+
+LEVEL:
+
+${level}
+
+</h1>
+
+
+<p class="guessSubtitle">
+
+🏆 Highest Score:
+${highest} / 50
+
+<br><br>
+
+🌎 GLOBAL RANK:
+#${rank}
+
+<br>
+
+OUT OF:
+${totalPlayers} PLAYERS
+
+</p>
+
+
+<button
+class="guessOption"
+onclick="startGuessGame()">
+
+PLAY AGAIN
+
+</button>
+
+
+`;
+
+}
+
+function setDailyTheme(car){
+
+let color="#00ff99";
+
+
+if(car.name.includes("Ferrari")){
+color="#ff0000";
+}
+
+
+else if(car.name.includes("Lamborghini")){
+color="#ff9900";
+}
+
+
+else if(car.name.includes("Bugatti")){
+color="#0066ff";
+}
+
+
+else if(car.name.includes("Koenigsegg")){
+color="#ffffff";
+}
+
+
+else if(car.name.includes("Porsche")){
+color="#ff3300";
+}
+
+
+else if(car.name.includes("McLaren")){
+color="#ff6600";
+}
+
+
+else if(car.name.includes("Rimac")){
+color="#00ccff";
+}
+
+
+else if(car.name.includes("BMW")){
+color="#3399ff";
+}
+
+
+document.documentElement.style.setProperty(
+"--dailyColor",
+color
+);
+
+
+}
+
+function shareDailyCar(){
+
+let car=getDailyCar();
+
+
+navigator.clipboard.writeText(
+"Today's PulseTorque Daily Feature: " + car.name
+);
+
+
+alert("Copied! 🚗🔥");
+
+}
+
+
+function showDailyFeature(){
+
+let car = getDailyCar();
+
+setDailyTheme(car);
+
+document.getElementById("dailyContent").innerHTML = `
+
+<div class="dailyBadge">
+⭐ DAILY FEATURE
+</div>
+
+<div class="rarityBadge">
+${car.category === "Hypercar" ? "💎 HYPERCAR" :
+car.category === "Supercar" ? "🔥 SUPERCAR" :
+car.category === "Race Cars / Track Cars" ? "🏁 TRACK LEGEND" :
+"⚡ PERFORMANCE"}
+</div>
+
+<div class="dailyMeta">
+
+<span>
+${getFlag(car.country)}
+${car.country || "Unknown"}
+</span>
+
+<span>
+${car.category}
+</span>
+
+<span>
+${car.year}
+</span>
+
+</div>
+
+<div class="dailyCountdown">
+
+Next Featured Car In
+
+<div id="dailyTimer">
+
+00:00:00
+
+</div>
+
+</div>
+
+<h1 class="dailyTitle">
+${car.name}
+</h1>
+
+
+<img 
+class="dailyImage"
+src="${car.img}"
+>
+
+
+<div class="dailyStats">
+
+
+<div>
+<h2 class="counter" data-target="${car.hp}">0</h2>
+<p>HORSEPOWER</p>
+</div>
+
+
+<div>
+<h2 class="counter" data-target="${car.zero}">0</h2>
+<p>0-60 MPH</p>
+</div>
+
+
+<div>
+<h2 class="counter" data-target="${car.quarter}">0</h2>
+<p>1/4 MILE</p>
+</div>
+
+
+<div>
+<h2 class="counter" data-target="${car.year}">0</h2>
+<p>YEAR</p>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+`;
+
+startDailyCountdown();
+
+startCounters();
+
+
+
+}
+
+
+
+function startCounters(){
+
+document.querySelectorAll(".counter").forEach(counter=>{
+
+let target=parseFloat(counter.dataset.target);
+
+let current=0;
+
+let increment=target/60;
+
+
+let timer=setInterval(()=>{
+
+current+=increment;
+
+
+if(current>=target){
+
+current=target;
+
+clearInterval(timer);
+
+}
+
+
+if(target % 1 !== 0){
+
+counter.innerHTML=current.toFixed(1);
+
+}
+
+else{
+
+counter.innerHTML=Math.floor(current);
+
+}
+
+
+},20);
+
+
+});
+
+
+}
+
+function showDailyPoll(){
+
+document.getElementById("dailyPollContent").innerHTML = `
+
+<div class="dailyPollTitle">
+🗳️ DAILY GARAGE WARS
+</div>
+
+<div class="dailyPollSubtitle">
+Which car would you rather own today?
+</div>
+
+<div class="pollGrid">
+
+<div class="pollOption">
+Ferrari F80
+</div>
+
+<div class="pollOption">
+McLaren W1
+</div>
+
+<div class="pollOption">
+Bugatti Tourbillon
+</div>
+
+<div class="pollOption">
+Koenigsegg Jesko Absolut
+</div>
+
+</div>
+
+<div class="pollCountdown">
+
+Next poll in:
+23:59:59
+
+</div>
+
+<div class="pollVotes">
+
+Vote once every day.
+
+</div>
+
+`;
+
+}
+
+function startDailyCountdown(){
+
+clearInterval(window.dailyTimerInterval);
+
+window.dailyTimerInterval=setInterval(()=>{
+
+const now=new Date();
+
+const tomorrow=new Date();
+
+tomorrow.setHours(24,0,0,0);
+
+let diff=tomorrow-now;
+
+let hours=Math.floor(diff/3600000);
+
+let minutes=Math.floor((diff%3600000)/60000);
+
+let seconds=Math.floor((diff%60000)/1000);
+
+document.getElementById("dailyTimer").innerHTML=
+
+String(hours).padStart(2,"0")+":"+
+
+String(minutes).padStart(2,"0")+":"+
+
+String(seconds).padStart(2,"0");
+
+},1000);
+
+}
+
+function saveGuessScore(){
+
+let highScore =
+localStorage.getItem("guessHighScore") || 0;
+
+
+if(guessScore > highScore){
+
+localStorage.setItem(
+"guessHighScore",
+guessScore
+);
+
+}
+
+}
+
+function endGuessGame(){
+
+let highScore =
+localStorage.getItem("guessHighScore") || guessScore;
+
+
+let rank;
+let rankClass;
+
+
+if(guessScore < 15){
+
+rank="ROOKIE";
+rankClass="rookie";
+
+}
+
+else if(guessScore < 25){
+
+rank="BEGINNER";
+rankClass="beginner";
+
+}
+
+else if(guessScore < 35){
+
+rank="INTERMEDIATE";
+rankClass="intermediate";
+
+}
+
+else if(guessScore < 44){
+
+rank="CAR GUY";
+rankClass="carguy";
+
+}
+
+else{
+
+rank="CAR EXPERT";
+rankClass="expert";
+
+}
+
+
+
+let leaderboardScores =
+JSON.parse(
+localStorage.getItem("guessLeaderboard")
+) || [];
+
+
+leaderboardScores.push(guessScore);
+
+
+leaderboardScores.sort((a,b)=>b-a);
+
+
+localStorage.setItem(
+"guessLeaderboard",
+JSON.stringify(leaderboardScores)
+);
+
+
+let playerRank =
+leaderboardScores.indexOf(guessScore)+1;
+
+
+let totalPlayers =
+leaderboardScores.length;
+
+
+
+document.getElementById("guessContent").innerHTML = `
+
+
+<div class="scoreCard ${rankClass}">
+
+
+<h1>
+🏁 GAME COMPLETE
+</h1>
+
+
+<h2>
+${guessScore} / 50
+</h2>
+
+
+<h3>
+${rank}
+</h3>
+
+
+<p>
+🏆 Highest Score:
+${highScore}/50
+</p>
+
+
+<p>
+🌎 Your Rank:
+#${playerRank} / ${totalPlayers}
+</p>
+
+
+<button 
+class="guessOption"
+onclick="startGuessGame()">
+
+🚗 PLAY AGAIN
+
+</button>
+
+
+</div>
+
+
+`;
+
+}
+
+
+</script>
+
+<div id="brandMenu" class="brand-menu">
+
+<h2>SELECT BRAND</h2>
+
+<div class="brand-list">
+
+<button onclick="filterBrand('Acura')">Acura</button>
+
+<button onclick="filterBrand('Alfa Romeo')">Alfa Romeo</button>
+
+<button onclick="filterBrand('Aston Martin')">Aston Martin</button>
+
+<button onclick="filterBrand('Audi')">Audi</button>
+
+<button onclick="filterBrand('Apollo')">Apollo</button>
+
+<button onclick="filterBrand('BYD')">BYD</button>
+
+<button onclick="filterBrand('BMW')">BMW</button>
+
+<button onclick="filterBrand('Bentley')">Bentley</button>
+
+<button onclick="filterBrand('Bugatti')">Bugatti</button>
+
+<button onclick="filterBrand('Cadillac')">Cadillac</button>
+
+<button onclick="filterBrand('Chevrolet')">Chevrolet</button>
+
+<button onclick="filterBrand('Dodge')">Dodge</button>
+
+<button onclick="filterBrand('Ferrari')">Ferrari</button>
+
+<button onclick="filterBrand('Ford')">Ford</button>
+
+<button onclick="filterBrand('Genesis')">Genesis</button>
+
+<button onclick="filterBrand('Honda')">Honda</button>
+
+<button onclick="filterBrand('Holden')">Holden</button>
+
+<button onclick="filterBrand('HSV')">HSV</button>
+
+<button onclick="filterBrand('Hyundai')">Hyundai</button>
+
+<button onclick="filterBrand('Infiniti')">Infiniti</button>
+
+<button onclick="filterBrand('Jeep')">Jeep</button>
+
+<button onclick="filterBrand('Koenigsegg')">Koenigsegg</button>
+
+<button onclick="filterBrand('Kia')">Kia</button>
+
+<button onclick="filterBrand('Lexus')">Lexus</button>
+
+<button onclick="filterBrand('Lotus')">Lotus</button>
+
+
+<button onclick="filterBrand('Lamborghini')">Lamborghini</button>
+
+<button onclick="filterBrand('Lancia')">Lancia</button>
+
+<button onclick="filterBrand('Mahindra')">Mahindra</button>
+
+<button onclick="filterBrand('Mitsubishi')">Mitsubishi</button>
+
+<button onclick="filterBrand('Maserati')">Maserati</button>
+
+<button onclick="filterBrand('Maruti Suzuki')">Maruti Suzuki</button>
+
+<button onclick="filterBrand('Mazda')">Mazda</button>
+
+<button onclick="filterBrand('McLaren')">McLaren</button>
+
+<button onclick="filterBrand('Mercedes')">Mercedes-AMG</button>
+
+<button onclick="filterBrand('Nissan')">Nissan</button>
+
+<button onclick="filterBrand('Pagani')">Pagani</button>
+
+<button onclick="filterBrand('Porsche')">Porsche</button>
+
+<button onclick="filterBrand('RAM')">RAM</button>
+
+<button onclick="filterBrand('Red Bull')">Red Bull</button>
+
+<button onclick="filterBrand('Rimac')">Rimac</button>
+
+<button onclick="filterBrand('Rolls-Royce')">Rolls-Royce</button>
+
+<button onclick="filterBrand('Saleen')">Saleen</button>
+
+
+<button onclick="filterBrand('Tata')">Tata</button>
+
+<button onclick="filterBrand('Tesla')">Tesla</button>
+
+<button onclick="filterBrand('Toyota')">Toyota</button>
+
+<button onclick="filterBrand('Volkswagen')">Volkswagen</button>
+
+<button onclick="filterBrand('Williams')">Williams</button>
+
+<button onclick="filterBrand('W Motors')">W Motors</button>
+
+</div>
+
+<button class="close-brand" onclick="closeBrands()">
+CLOSE
+</button>
+
+</div>
+
+<div id="countryMenu" class="brand-menu">
+
+<h2>SELECT COUNTRY</h2>
+
+<div class="brand-list">
+
+<button onclick="filterCountry('Germany')">🇩🇪 Germany</button>
+
+<button onclick="filterCountry('China')">China</button>
+
+<button onclick="filterCountry('Italy')">🇮🇹 Italy</button>
+
+<button onclick="filterCountry('USA')">🇺🇸 USA</button>
+
+<button onclick="filterCountry('Japan')">🇯🇵 Japan</button>
+
+<button onclick="filterCountry('South Korea')">🇰🇷 South Korea</button>
+
+<button onclick="filterCountry('India')">🇮🇳 India</button>
+
+<button onclick="filterCountry('UK')">🇬🇧 UK</button>
+
+<button onclick="filterCountry('Sweden')">🇸🇪 Sweden</button>
+
+<button onclick="filterCountry('Croatia')">🇭🇷 Croatia</button>
+
+<button onclick="filterCountry('UAE')"> 🇦🇪 UAE</button>
+
+<button onclick="filterCountry('Spain')"> 🇪🇸 Spain</button>
+
+</div>
+
+<button class="close-brand" onclick="closeCountries()">
+CLOSE
+</button>
+
+</div>
+
+<div id="leaderboard" class="leaderboard">
+
+<h1>🏆 PulseTorque Leaderboards</h1>
+
+
+
+<div class="leaderTabs">
+
+<button class="leaderBtn active"
+onclick="showLeaderboard('zero');setActiveTab(this)">
+🏁 0-60
+</button>
+
+<button class="leaderBtn"
+onclick="showTopSpeedLeaderboard();setActiveTab(this)">
+🚀 Top Speed
+</button>
+
+</div>
+
+
+<div id="leaderContent"></div>
+
+
+
+
+
+<button class="close-brand" onclick="closeLeaderboard()">
+CLOSE
+</button>
+
+</div>
+
+</body>
+
+</html>
